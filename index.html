@@ -5,40 +5,7 @@
       
       
       <pre>
-      
-      jshell> int indexOf(int key, int [] a){
-   ...> int lo = 0;
-   ...> int hi = a.length - 1;
-   ...> while(lo < hi){
-   ...> 
-<press tab again to see all possible completions; total possible completions: 452>
-   ...> int mid = lo + (hi - lo )/2;
-   ...> if(key < a[mid]) hi = mid - 1;
-   ...> else if(key > a[mid]) lo = mid + 1;
-   ...> else return a[mid];
-   ...> }
-   ...> return -1;
-   ...> }
-|  created method indexOf(int,int [])
-
-jshell> int [] arr = {1,2,3,4,5,6,7,8,9,10,11};
-arr ==> int[11] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11 }
-
-jshell> int k = 5;
-k ==> 5
-
-jshell> indexOf(k,arr);
-$4 ==> -1
-
-jshell> indexOf(3,arr);
-$5 ==> 3
-
-jshell> indexOf(7, arr);
-$6 ==> 7
-
-jshell> 
-      
-      
+     
       
       </pre>
       
