@@ -1,6 +1,7 @@
 ## Welcome to ahoque.org
 
-      Hello Again World!
+     Project commerce..
+     
+     [Demo ecommerce site](http://openjdk-app-commerce.193b.starter-ca-central-1.openshiftapps.com/shop/women/)
 
-     <src image="category-page.png">
    
