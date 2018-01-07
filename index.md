@@ -1,3 +1,3 @@
-[Visit E-commerce site](http://openjdk-app-commerce.193b.starter-ca-central-1.openshiftapps.com/shop/women/)
+[Visit E-commerce demo site](http://openjdk-app-commerce.193b.starter-ca-central-1.openshiftapps.com/shop/women/)
 
    
