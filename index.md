@@ -7,6 +7,7 @@
 * Implement failover cookie cart
 
 ## TODO:
+* Hide basket in mobile menu
 * Send Sales workflow update emails
 * Refactor front-end
 
