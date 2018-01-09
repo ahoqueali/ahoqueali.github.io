@@ -7,7 +7,7 @@
 * Implement failover cookie cart
 
 ## TODO:
-* Send sale workflow update emails
+* Send Sales workflow update emails
 * Refactor front-end
 
    
