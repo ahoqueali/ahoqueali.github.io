@@ -9,15 +9,15 @@ I am currently developing [this E-commerce App](http://openjdk-app-commerce.193b
 The board below shows the current status of the project.
 
 ## WIP:
-* One page html MVP site for E-commerce product 
+* Browser caching
 
 ## DONE:
-* Add google tracking
+* One page html MVP site for E-commerce product - 13/01/2018
+* Add google tracking - 13/01/2018
 * Hide basket in mobile menu - 13/01/2018
 * Fix PayPal integration - 05/12/2017 
 
 ## TODO:
-* Browser caching
 * Handle image size restriction
 * Admin side menu
 * Implement failover cookie cart
