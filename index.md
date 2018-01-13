@@ -1,9 +1,9 @@
-
+# E-commerce App
+I am currently developing [this E-commerce App](http://openjdk-app-commerce.193b.starter-ca-central-1.openshiftapps.com/shop/women/).  I am making the app for the likes of Ebay and Facebook entrepreneurs who have come to a point in their journey where they now want their own dedicated e-commerce site.
 
 ![alt ecommerce site](http://ahoque.org/category-page.png)
 
-
-[Visit E-commerce demo site](http://openjdk-app-commerce.193b.starter-ca-central-1.openshiftapps.com/shop/women/)
+[Visit demo site](http://openjdk-app-commerce.193b.starter-ca-central-1.openshiftapps.com/shop/women/)
 
 ## DONE:
 * Hide basket in mobile menu - 13/01/2018
