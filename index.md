@@ -5,13 +5,15 @@ I am currently developing [this E-commerce App](http://openjdk-app-commerce.193b
 
 [Visit demo site](http://openjdk-app-commerce.193b.starter-ca-central-1.openshiftapps.com/shop/women/)
 
-## DONE:
-* Hide basket in mobile menu - 13/01/2018
-* Fix PayPal integration - 05/12/2017 
+# Kanban Task Board
+The board below shows the current status of the project.
 
 ## WIP:
 * One page html MVP of ecommere product 
 
+## DONE:
+* Hide basket in mobile menu - 13/01/2018
+* Fix PayPal integration - 05/12/2017 
 
 ## TODO:
 * Browser caching
