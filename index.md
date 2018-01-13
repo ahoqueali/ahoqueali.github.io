@@ -9,7 +9,7 @@ I am currently developing [this E-commerce App](http://openjdk-app-commerce.193b
 The board below shows the current status of the project.
 
 ## WIP:
-* One page html MVP of ecommere product 
+* One page html MVP site for commerce product 
 
 ## DONE:
 * Add google tracking
