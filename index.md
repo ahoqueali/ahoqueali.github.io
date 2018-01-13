@@ -12,6 +12,7 @@ The board below shows the current status of the project.
 * One page html MVP of ecommere product 
 
 ## DONE:
+* Add google tracking
 * Hide basket in mobile menu - 13/01/2018
 * Fix PayPal integration - 05/12/2017 
 
