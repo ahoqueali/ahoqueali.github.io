@@ -5,10 +5,10 @@ I am currently developing [this E-commerce App](http://openjdk-app-commerce.193b
 
 [Visit demo site](http://openjdk-app-commerce.193b.starter-ca-central-1.openshiftapps.com/shop/women/)
 
-# Kanban Tasks Board
+# Kanban Task Board
 The board below shows the current status of the project.
 
-## WIP:
+## WORK IN PROGRESS:
 * Browser caching
 
 ## DONE:
