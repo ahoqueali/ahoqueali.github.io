@@ -3,7 +3,9 @@ I am currently developing [this E-commerce App](http://openjdk-app-commerce.193b
 
 ![alt ecommerce site](http://ahoque.org/category-page.png)
 
-[Visit demo site](http://openjdk-app-commerce.193b.starter-ca-central-1.openshiftapps.com/shop/women/)
+* [Visit demo site](http://openjdk-app-commerce.193b.starter-ca-central-1.openshiftapps.com/shop/women/)
+* [Contact me via Facebook](https://www.facebook.com/ahoqueali)
+
 
 # Kanban Task Board
 The board below shows the current status of the project.
