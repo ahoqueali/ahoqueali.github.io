@@ -11,7 +11,7 @@ I am currently developing [this E-commerce App](http://openjdk-app-commerce.193b
 The board below shows the current status of the project.
 
 ## WORK IN PROGRESS:
-* Browser caching
+* Improve demo data
 
 ## DONE:
 * One page html MVP site for E-commerce product - 13/01/2018
@@ -20,6 +20,7 @@ The board below shows the current status of the project.
 * Fix PayPal integration - 05/12/2017 
 
 ## TODO:
+* Browser caching
 * Handle image size restriction
 * Admin side menu
 * Implement failover cookie cart
