@@ -11,9 +11,10 @@ I am currently developing [this E-commerce App](http://openjdk-app-commerce.193b
 The board below shows the current status of the project.
 
 ## WORK IN PROGRESS:
-* Improve demo data
+* Setup production
 
 ## DONE:
+* Improve demo data
 * One page html MVP site for E-commerce product - 13/01/2018
 * Add google tracking - 13/01/2018
 * Hide basket in mobile menu - 13/01/2018
