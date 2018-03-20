@@ -1,2 +1,2 @@
 
-[Ecommerce project](https://ahoque.org/project/ecommerce)
+[Ecommerce project](http://ahoque.org/project/ecommerce)
