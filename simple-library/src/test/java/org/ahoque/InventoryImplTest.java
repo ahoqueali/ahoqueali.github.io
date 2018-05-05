@@ -25,7 +25,7 @@ public class InventoryImplTest {
 	public void givenAnEmptyInventory_whenAddItem_andGetLonableItems_thenTheInventoryShouldHaveOneItem() {
 		
 		Title title = new TitleImpl("Star Wars", "Marvel Comics");
-		TitleCopy copy = new TitleCopyImpl("1323");
+		TitleCopy copy = new DVDImpl("1323");
 		title.add(copy);
 		inventory.add(title);
 		
@@ -37,7 +37,7 @@ public class InventoryImplTest {
 		
 		for(int i = 0; i < 10; i++) {
 			Title title = new TitleImpl("Friends part" + (i + 1), "MGM");
-			TitleCopy copy = new TitleCopyImpl("1323" + i);
+			TitleCopy copy = new DVDImpl("1323" + i);
 			title.add(copy);
 			inventory.add(title);
 		}

@@ -2,12 +2,14 @@ package org.ahoque;
 
 import java.util.Optional;
 
-public class TitleCopyImpl implements TitleCopy {
+public abstract class AbstractTitleCopy implements TitleCopy {
 
+	private static final int HASH = 7;
+	private static final int HASH_PRIME = 31;
+	
 	private final String id;
 	
-	/** When a copy is loaned the loan object is set.
-	 */
+	// When a copy is loaned the loan object is set.
 	private Optional<LoanImpl> loan = Optional.empty();
 
 	/**
@@ -15,7 +17,7 @@ public class TitleCopyImpl implements TitleCopy {
 	 * 
 	 * @param id the unique identifier of the copy
 	 */
-	public TitleCopyImpl(String id) {
+	public AbstractTitleCopy(String id) {
 		this.id = id;
 	}
 
@@ -41,8 +43,8 @@ public class TitleCopyImpl implements TitleCopy {
 
 	@Override
 	public int hashCode() {
-		int hash = 7;
-		hash = 31 * hash + id.hashCode();
+		int hash = HASH;
+		hash = HASH_PRIME * hash + id.hashCode();
 		return hash;
 	}
 

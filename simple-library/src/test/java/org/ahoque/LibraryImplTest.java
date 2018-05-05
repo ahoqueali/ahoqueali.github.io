@@ -23,7 +23,7 @@ public class LibraryImplTest {
 		library = new LibraryImpl();
 		
 		Title title = new TitleImpl("WarGames", "Metro-Goldwyn-Mayer Studios Inc");
-		TitleCopy warGamesCopy = new TitleCopyImpl(UNIQUE_ID);
+		TitleCopy warGamesCopy = new DVDImpl(UNIQUE_ID);
 		title.add(warGamesCopy);
 		library.addItemToInventory(title);
 				
