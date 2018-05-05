@@ -1,6 +1,7 @@
 package org.ahoque;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 import java.util.List;
@@ -12,6 +13,8 @@ import org.junit.Test;
 
 public class LibraryImplTest {
 
+	private static final int LOAN_PERIOD_IN_DAYS = 7;
+	private static final String UNIQUE_ID = "2221";
 	private Library library;
 	
 	@Before
@@ -20,7 +23,7 @@ public class LibraryImplTest {
 		library = new LibraryImpl();
 		
 		Title title = new TitleImpl("WarGames", "Metro-Goldwyn-Mayer Studios Inc");
-		TitleCopy warGamesCopy = new TitleCopyImpl("2221");
+		TitleCopy warGamesCopy = new TitleCopyImpl(UNIQUE_ID);
 		title.add(warGamesCopy);
 		library.addItemToInventory(title);
 				
@@ -29,45 +32,38 @@ public class LibraryImplTest {
 	}
 	
 	@Test
-	public void givenTheTitleWarGames_whenTheMemberHoqueBorrowsTheItem_ThenTheItemShouldBeLoanedToMemberHoque() {
+	public void givenTheTitleWarGames_whenTheMemberHoqueBorrowsTheItem_thenTheItemShouldBeLoanedToMemberHoque() {
 	
 		List<TitleCopy> copies = library.findTileCopiesByName("WarGames");
 		TitleCopy warGamesCopy = copies.stream().findFirst().get();
-		assertTrue(warGamesCopy.isLoanable());
 		
 		library.getMemberByUsername("ahoqueali").borrowItem(warGamesCopy);
 		assertTrue(library.getMemberByUsername("ahoqueali").getLoanItems().contains(warGamesCopy));
 	}
-	
+
 	@Test
-	public void givenTheTitleWarGames_whenTheMemberHoqueBorrowsTheItem_ThenTheItemShouldBeLoanedToMemberHoqueAndForOneWeek() {
+	public void givenTheTitleWarGamesIsBorrowedByHoque_whenTheItemIsReturned_thenTheItemShouldBeRemovedFromHoquesLoanedList() {
 	
 		List<TitleCopy> copies = library.findTileCopiesByName("WarGames");
 		TitleCopy warGamesCopy = copies.stream().findFirst().get();
-		assertTrue(warGamesCopy.isLoanable());
-		
 		library.getMemberByUsername("ahoqueali").borrowItem(warGamesCopy);
 		
 		TitleCopy borrowedCopy = library.getMemberByUsername("ahoqueali").getLoanItems().stream().findFirst().get();
-		assertEquals(warGamesCopy, borrowedCopy);
+		library.getMemberByUsername("ahoqueali").returnItem(borrowedCopy);
 		
-		Loan loan = borrowedCopy.getLoan().get();
-		assertEquals(7, loan.getPeriod().getDays());
+		assertFalse(library.getMemberByUsername("ahoqueali").getLoanItems().contains(warGamesCopy));
 	}
 	
-//	@Test
-//	public void givenMemberHoqueHasSevenOverdueItems_whenMemberHoqueChecksForOverDueItems_ThenTheOverdueItemsShouldBeSeven() {
-//	
-//		List<TitleCopy> copies = library.findTileCopiesByName("WarGames");
-//		TitleCopy warGamesCopy = copies.stream().findFirst().get();
-//		assertTrue(warGamesCopy.isLoanable());
-//		
-//		library.getMemberByUsername("ahoqueali").borrowItem(warGamesCopy);
-//		
-//		TitleCopy borrowedCopy = library.getMemberByUsername("ahoqueali").getLoanItems().stream().findFirst().get();
-//		assertEquals(warGamesCopy, borrowedCopy);
-//		
-//		Loan loan = borrowedCopy.getLoan().get();
-//		assertEquals(7, loan.getPeriod().getDays());
-//	}
+	@Test
+	public void givenTheTitleWarGames_whenTheMemberHoqueBorrowsTheItem_thenTheItemShouldBeLoanedToMemberHoqueForOneWeek() {
+	
+		List<TitleCopy> copies = library.findTileCopiesByName("WarGames");
+		TitleCopy warGamesCopy = copies.stream().findFirst().get();
+		
+		library.getMemberByUsername("ahoqueali").borrowItem(warGamesCopy);
+		TitleCopy borrowedCopy = library.getMemberByUsername("ahoqueali").getLoanItems().stream().findFirst().get();
+		
+		Loan loan = borrowedCopy.getLoan().get();
+		assertEquals(LOAN_PERIOD_IN_DAYS, loan.getPeriod().getDays());
+	}
 }

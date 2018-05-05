@@ -23,18 +23,21 @@ public class MemberImplTest {
 	}
 	
 	@Test
-	public void givenFourItems_whenTheFourItemsAreBorrowed_thenTheNumberOfBorrowedItemsShouldBeFour() {
+	public void givenOneItem_whenTheItemIsBorrowed_thenTheNumberOfBorrowedItemsShouldBeOne() {
 		
-		List<TitleCopy> items = new ArrayList<>();
-		items.add(new TitleCopyImpl("1234"));
-		items.add(new TitleCopyImpl("23432"));
-		items.add(new TitleCopyImpl("32432"));
-		items.add(new TitleCopyImpl("132432"));
+		TitleCopy item = new TitleCopyImpl("1234");
+		member.borrowItem(item);
 		
-		items.forEach( item -> member.borrowItem(item));
+		assertEquals(1, member.getLoanItems().size());
+	}
+	
+	@Test
+	public void givenOneItem_whenTheItemIsBorrowed_andReturned_thenTheNumberOfBorrowedItemsShouldBeZero() {
 		
-		assertEquals(4, member.getLoanItems().size());
-		assertEquals(member.getLoanItems(), items);
+		TitleCopy item = new TitleCopyImpl("1234");
+		member.returnItem(item);
+
+		assertEquals(0, member.getLoanItems().size());
 	}
 
 	@Test
@@ -48,7 +51,6 @@ public class MemberImplTest {
 		
 		items.forEach( item -> member.borrowItem(item));
 		
-		
 		member.returnItem(new TitleCopyImpl("23432"));
 		member.returnItem(new TitleCopyImpl("132432"));
 
@@ -59,7 +61,5 @@ public class MemberImplTest {
 		expectedLoanedItems.add(new TitleCopyImpl("32432"));
 		
 		assertEquals(expectedLoanedItems, member.getLoanItems());
-		
-		
 	}
 }

@@ -1,10 +1,10 @@
 package org.ahoque;
 
-import java.util.Collection;
+import java.util.List;
 
 public interface Inventory {
 
-	Collection<Title> getLoanableTitles();
+	List<Title> getLoanableTitles();
 	
 	void add(Title item);
 }
