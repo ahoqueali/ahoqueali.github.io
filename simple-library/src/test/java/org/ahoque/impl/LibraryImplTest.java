@@ -2,7 +2,6 @@ package org.ahoque.impl;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
 import java.time.LocalDate;
@@ -32,7 +31,7 @@ public class LibraryImplTest {
 
 	private Library library;
 	
-	private TitleCopy peterRabbitCopy;
+	private TitleCopy peterRabbitBookCopy;
 
 	@Before
 	public void setup() {
@@ -46,11 +45,11 @@ public class LibraryImplTest {
 
 		Title theTaleOfPeterRabbit = new TitleImpl(THE_TALE_OF_PETTER_RABBIT);
 
-		peterRabbitCopy = new BookImpl("B2234");
-		theTaleOfPeterRabbit.addTitleCopy(peterRabbitCopy);
+		peterRabbitBookCopy = new BookImpl("B2234");
+		theTaleOfPeterRabbit.addTitleCopy(peterRabbitBookCopy);
 
-		TitleCopy peterRabbitCopy2 = new BookImpl("B2235");
-		theTaleOfPeterRabbit.addTitleCopy(peterRabbitCopy2);
+		TitleCopy peterRabbitDvdCopy = new DVDImpl("B2235");
+		theTaleOfPeterRabbit.addTitleCopy(peterRabbitDvdCopy);
 
 		library.addItemToInventory(theTaleOfPeterRabbit);
 
@@ -152,12 +151,12 @@ public class LibraryImplTest {
 		assertEquals(expectedBorrowedItems, library.getMemberByUsername(USERNAME).getBorrowedItems());
 	}
 
-	// determine if a book is available to borrow  -- handle generics
+	// determine if a book is available to borrow
 	@Test
 	public void givenTheLoanableBookTaleOfPeterRabbit_whenGetLonableTitleItemByTypeBook_thenTheBookTheTaleOfPeterRabbitShouldBeReturned() {
 		
 		List<Book> peterRabbitCopies = library.getLoanableTitleCopiesByNameAndType(THE_TALE_OF_PETTER_RABBIT, Book.class);
-		assertEquals(peterRabbitCopies.get(0), peterRabbitCopy);
+		assertEquals(peterRabbitCopies.get(0), peterRabbitBookCopy);
 	}
 
 }
