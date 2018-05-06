@@ -15,6 +15,7 @@ import org.ahoque.impl.LibraryImpl;
 import org.ahoque.impl.LoanImpl;
 import org.ahoque.impl.MemberImpl;
 import org.ahoque.impl.TitleImpl;
+import org.ahoque.interfaces.Book;
 import org.ahoque.interfaces.Library;
 import org.ahoque.interfaces.Loan;
 import org.ahoque.interfaces.Member;
@@ -155,7 +156,7 @@ public class LibraryImplTest {
 	@Test
 	public void givenTheLoanableBookTaleOfPeterRabbit_whenGetLonableTitleItemByTypeBook_thenTheBookTheTaleOfPeterRabbitShouldBeReturned() {
 		
-		List<Class<TitleCopy>> peterRabbitCopies = library.getLoanableTitleCopiesByNameAndType(THE_TALE_OF_PETTER_RABBIT, TitleCopy.class);
+		List<Book> peterRabbitCopies = library.getLoanableTitleCopiesByNameAndType(THE_TALE_OF_PETTER_RABBIT, Book.class);
 		assertEquals(peterRabbitCopies.get(0), peterRabbitCopy);
 	}
 

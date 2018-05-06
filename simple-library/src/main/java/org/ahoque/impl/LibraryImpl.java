@@ -68,11 +68,11 @@ public class LibraryImpl implements Library {
 	}
 
 	@Override
-	public <T> List<T> getLoanableTitleCopiesByNameAndType(String name, T type) {
+	public <T> List<T> getLoanableTitleCopiesByNameAndType(String name, Class<T> clazz) {
 		return inventory.getLoanableTitles().stream()
 				.filter(title -> title.getTitle().equals(name))
 				.flatMap(title -> title.getLoanableCopies().stream())
-//				.filter(copy -> copy.getClass().isInstance(type))
+				.filter(clazz::isInstance)
 				.map(copy -> (T)copy)
 				.collect(Collectors.toList());
 	}

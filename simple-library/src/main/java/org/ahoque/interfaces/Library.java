@@ -18,6 +18,6 @@ public interface Library {
 
 	List<TitleCopy> getOverdueItems();
 
-	<T> List<T> getLoanableTitleCopiesByNameAndType(String name, T type);
+	<T> List<T> getLoanableTitleCopiesByNameAndType(String name, Class<T> clazz);
 
 }
