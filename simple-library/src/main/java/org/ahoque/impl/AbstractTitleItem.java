@@ -18,7 +18,7 @@ public abstract class AbstractTitleItem implements TitleCopy {
 	/**
 	 * Constructs a copy.
 	 * 
-	 * @param id the unique identifier of the copy
+	 * @param id the unique identifier
 	 */
 	public AbstractTitleItem(String id) {
 		this.id = id;

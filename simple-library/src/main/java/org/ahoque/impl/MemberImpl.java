@@ -2,7 +2,6 @@ package org.ahoque.impl;
 
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
-import java.util.concurrent.locks.ReentrantLock;
 
 import org.ahoque.interfaces.Loan;
 import org.ahoque.interfaces.Member;
