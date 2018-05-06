@@ -1,16 +1,17 @@
 package org.ahoque;
 
 import java.util.Optional;
+import java.util.concurrent.atomic.AtomicReference;
 
 public abstract class AbstractTitleCopy implements TitleCopy {
 
 	private static final int HASH = 7;
 	private static final int HASH_PRIME = 31;
-	
+
 	private final String id;
-	
+
 	// When a copy is loaned the loan object is set.
-	private Optional<LoanImpl> loan = Optional.empty();
+	private AtomicReference<Optional<Loan>> atomicRef;
 
 	/**
 	 * Constructs a copy.
@@ -19,6 +20,7 @@ public abstract class AbstractTitleCopy implements TitleCopy {
 	 */
 	public AbstractTitleCopy(String id) {
 		this.id = id;
+		atomicRef = new AtomicReference<>(Optional.empty());
 	}
 
 	@Override
@@ -28,17 +30,17 @@ public abstract class AbstractTitleCopy implements TitleCopy {
 
 	@Override
 	public boolean isLoanable() {
-		return !loan.isPresent();
+		return !atomicRef.get().isPresent();
 	}
 
 	@Override
 	public void setLoan(LoanImpl loan) {
-		this.loan = Optional.of(loan);
+		this.atomicRef.getAndSet(Optional.of(loan));
 	}
 
 	@Override
 	public void removeLoan() {
-		this.loan = Optional.empty();
+		this.atomicRef.getAndSet(Optional.empty());
 	}
 
 	@Override
@@ -67,7 +69,7 @@ public abstract class AbstractTitleCopy implements TitleCopy {
 	}
 
 	@Override
-	public Optional<LoanImpl> getLoan() {
-		return loan;
+	public Optional<Loan> getLoan() {
+		return atomicRef.get();
 	}
 }

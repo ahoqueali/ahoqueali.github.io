@@ -9,9 +9,10 @@ public class MemberImpl implements Member {
 
 	private final String username;
 
-	private List<TitleCopy> copies = new CopyOnWriteArrayList<>();
+	private final List<TitleCopy> copies = new CopyOnWriteArrayList<>();
 
-	private ReentrantLock reentrantLock = new ReentrantLock();
+	// Static lock so that there is just one lock that all tread need to go through
+	private static final ReentrantLock reentrantLock = new ReentrantLock();
 
 	public MemberImpl(final String username) {
 

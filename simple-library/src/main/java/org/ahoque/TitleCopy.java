@@ -12,5 +12,5 @@ public interface TitleCopy {
 	
 	public void removeLoan();
 	
-	public Optional<LoanImpl> getLoan();
+	public Optional<Loan> getLoan();
 }
