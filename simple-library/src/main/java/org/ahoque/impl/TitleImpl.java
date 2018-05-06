@@ -4,8 +4,8 @@ import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.stream.Collectors;
 
-import org.ahoque.Title;
-import org.ahoque.TitleCopy;
+import org.ahoque.interfaces.Title;
+import org.ahoque.interfaces.TitleCopy;
 
 public class TitleImpl implements Title{
 

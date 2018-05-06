@@ -3,7 +3,7 @@ package org.ahoque.impl;
 import java.time.LocalDate;
 import java.time.Period;
 
-import org.ahoque.Loan;
+import org.ahoque.interfaces.Loan;
 
 public class LoanImpl implements Loan {
 

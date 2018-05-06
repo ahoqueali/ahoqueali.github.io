@@ -5,8 +5,8 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.stream.Collectors;
 
-import org.ahoque.Inventory;
-import org.ahoque.Title;
+import org.ahoque.interfaces.Inventory;
+import org.ahoque.interfaces.Title;
 
 public class InventoryImpl implements Inventory {
 

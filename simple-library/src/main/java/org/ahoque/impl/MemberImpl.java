@@ -4,9 +4,9 @@ import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.concurrent.locks.ReentrantLock;
 
-import org.ahoque.Loan;
-import org.ahoque.Member;
-import org.ahoque.TitleCopy;
+import org.ahoque.interfaces.Loan;
+import org.ahoque.interfaces.Member;
+import org.ahoque.interfaces.TitleCopy;
 
 public class MemberImpl implements Member {
 

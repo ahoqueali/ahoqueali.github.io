@@ -5,10 +5,10 @@ import static org.junit.Assert.*;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.ahoque.Member;
-import org.ahoque.TitleCopy;
 import org.ahoque.impl.DVDImpl;
 import org.ahoque.impl.MemberImpl;
+import org.ahoque.interfaces.Member;
+import org.ahoque.interfaces.TitleCopy;
 import org.junit.Before;
 import org.junit.Test;
 

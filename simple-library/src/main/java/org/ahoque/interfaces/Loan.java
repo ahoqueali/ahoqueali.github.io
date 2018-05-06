@@ -1,4 +1,4 @@
-package org.ahoque;
+package org.ahoque.interfaces;
 
 import java.time.Period;
 

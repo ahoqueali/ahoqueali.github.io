@@ -1,6 +1,6 @@
 package org.ahoque.impl;
 
-import org.ahoque.Book;
+import org.ahoque.interfaces.Book;
 
 public class BookImpl extends AbstractTitleCopy implements Book {
 

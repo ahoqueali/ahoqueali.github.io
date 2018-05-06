@@ -3,8 +3,8 @@ package org.ahoque.impl;
 import java.util.Optional;
 import java.util.concurrent.atomic.AtomicReference;
 
-import org.ahoque.Loan;
-import org.ahoque.TitleCopy;
+import org.ahoque.interfaces.Loan;
+import org.ahoque.interfaces.TitleCopy;
 
 public abstract class AbstractTitleCopy implements TitleCopy {
 

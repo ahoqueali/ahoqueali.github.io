@@ -2,12 +2,12 @@ package org.ahoque.impl;
 
 import static org.junit.Assert.assertEquals;
 
-import org.ahoque.Inventory;
-import org.ahoque.Title;
-import org.ahoque.TitleCopy;
 import org.ahoque.impl.DVDImpl;
 import org.ahoque.impl.InventoryImpl;
 import org.ahoque.impl.TitleImpl;
+import org.ahoque.interfaces.Inventory;
+import org.ahoque.interfaces.Title;
+import org.ahoque.interfaces.TitleCopy;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mockito;

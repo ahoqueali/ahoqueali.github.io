@@ -5,11 +5,11 @@ import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-import org.ahoque.Inventory;
-import org.ahoque.Library;
-import org.ahoque.Member;
-import org.ahoque.Title;
-import org.ahoque.TitleCopy;
+import org.ahoque.interfaces.Inventory;
+import org.ahoque.interfaces.Library;
+import org.ahoque.interfaces.Member;
+import org.ahoque.interfaces.Title;
+import org.ahoque.interfaces.TitleCopy;
 
 public class LibraryImpl implements Library {
 
