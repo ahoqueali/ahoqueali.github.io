@@ -10,7 +10,6 @@ import org.ahoque.interfaces.Title;
 
 public class InventoryImpl implements Inventory {
 
-	// Using concurrent hash map for performance and thread safety when doing read, write and updates
 	private final Map<String, Title> titles = new ConcurrentHashMap<>();
 	
 	@Override

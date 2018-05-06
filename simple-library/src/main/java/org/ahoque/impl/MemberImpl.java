@@ -12,10 +12,7 @@ public class MemberImpl implements Member {
 
 	private final String username;
 
-	private final List<TitleCopy> borrowedCopies = new CopyOnWriteArrayList<>();
-
-	// Static lock so that there is just one lock that all treads need to go through
-	private static final ReentrantLock reentrantLock = new ReentrantLock();
+	private final List<TitleCopy> borrowedItems = new CopyOnWriteArrayList<>();
 
 	public MemberImpl(final String username) {
 		this.username = username;
@@ -28,57 +25,31 @@ public class MemberImpl implements Member {
 
 	@Override
 	public List<TitleCopy> getBorrowedItems() {
-		return borrowedCopies;
+		return borrowedItems;
 	}
 
 	@Override
 	public void borrowItem(TitleCopy item) {
 
-		LoanImpl loan = new LoanImpl();
-		
-		reentrantLock.lock();
-		
-		try {
-			// critical section to stop multiple threads loaning the same copy
-			item.setLoan(loan);
-			borrowedCopies.add(item);
-		}finally {
-			reentrantLock.unlock();
-		}
+		item.setLoan(new LoanImpl());
+		borrowedItems.add(item);
 	}
-	
+
 	@Override
 	public void borrowItem(TitleCopy item, Loan loan) {
-		
-		reentrantLock.lock();
 
-		try {
-			// critical section to stop multiple threads loaning the same copy
-			item.setLoan(loan);
-			borrowedCopies.add(item);
-		}finally {
-			reentrantLock.unlock();
-		}
-		
+		item.setLoan(loan);
+		borrowedItems.add(item);
 	}
 
 	@Override
-	public void returnItem(TitleCopy copy) {
+	public void returnItem(TitleCopy item) {
 
-
-		borrowedCopies.stream()
-		.filter(c -> c.equals(copy))
+		borrowedItems.stream()
+		.filter(c -> c.equals(item))
 		.forEach(c -> {
-			
-			reentrantLock.lock();
-			
-			try {
-				// critical section to stop multiple threads from updating
-				borrowedCopies.remove(copy);
-				copy.removeLoan();
-			}finally {
-				reentrantLock.unlock();
-			}
+			borrowedItems.remove(item);
+			item.removeLoan();
 		});
 
 	}

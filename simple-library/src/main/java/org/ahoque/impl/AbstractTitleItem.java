@@ -13,9 +13,7 @@ public abstract class AbstractTitleItem implements TitleCopy {
 
 	private final String id;
 
-	// When a copy is loaned then the loan object is set. 
-	// Using non-blocking compare-and-swap AtomicRef to avoid thread deadlock issues.
-	private AtomicReference<Optional<Loan>> atomicRef;
+	private AtomicReference<Optional<Loan>> atomicRef = new AtomicReference<>(Optional.empty());
 
 	/**
 	 * Constructs a copy.
@@ -24,7 +22,6 @@ public abstract class AbstractTitleItem implements TitleCopy {
 	 */
 	public AbstractTitleItem(String id) {
 		this.id = id;
-		atomicRef = new AtomicReference<>(Optional.empty());
 	}
 
 	@Override
