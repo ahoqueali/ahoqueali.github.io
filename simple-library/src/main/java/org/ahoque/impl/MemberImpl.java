@@ -1,8 +1,12 @@
-package org.ahoque;
+package org.ahoque.impl;
 
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.concurrent.locks.ReentrantLock;
+
+import org.ahoque.Loan;
+import org.ahoque.Member;
+import org.ahoque.TitleCopy;
 
 public class MemberImpl implements Member {
 

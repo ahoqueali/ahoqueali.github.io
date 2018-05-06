@@ -1,4 +1,4 @@
-package org.ahoque;
+package org.ahoque.impl;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
@@ -10,7 +10,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.ahoque.Library;
-import org.ahoque.LibraryImpl;
+import org.ahoque.Loan;
+import org.ahoque.Member;
+import org.ahoque.Title;
+import org.ahoque.TitleCopy;
+import org.ahoque.impl.BookImpl;
+import org.ahoque.impl.DVDImpl;
+import org.ahoque.impl.LibraryImpl;
+import org.ahoque.impl.LoanImpl;
+import org.ahoque.impl.MemberImpl;
+import org.ahoque.impl.TitleImpl;
 import org.junit.Before;
 import org.junit.Test;
 

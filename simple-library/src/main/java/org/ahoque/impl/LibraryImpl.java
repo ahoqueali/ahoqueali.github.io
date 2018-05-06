@@ -1,9 +1,15 @@
-package org.ahoque;
+package org.ahoque.impl;
 
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
+
+import org.ahoque.Inventory;
+import org.ahoque.Library;
+import org.ahoque.Member;
+import org.ahoque.Title;
+import org.ahoque.TitleCopy;
 
 public class LibraryImpl implements Library {
 

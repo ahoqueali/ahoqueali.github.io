@@ -1,7 +1,10 @@
-package org.ahoque;
+package org.ahoque.impl;
 
 import java.util.Optional;
 import java.util.concurrent.atomic.AtomicReference;
+
+import org.ahoque.Loan;
+import org.ahoque.TitleCopy;
 
 public abstract class AbstractTitleCopy implements TitleCopy {
 

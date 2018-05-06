@@ -1,4 +1,6 @@
-package org.ahoque;
+package org.ahoque.impl;
+
+import org.ahoque.DVD;
 
 public class DVDImpl extends AbstractTitleCopy implements DVD{
 

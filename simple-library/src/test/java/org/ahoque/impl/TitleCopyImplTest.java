@@ -1,7 +1,9 @@
-package org.ahoque;
+package org.ahoque.impl;
 
 import static org.junit.Assert.*;
 
+import org.ahoque.TitleCopy;
+import org.ahoque.impl.DVDImpl;
 import org.junit.Test;
 
 public class TitleCopyImplTest {

@@ -1,10 +1,14 @@
-package org.ahoque;
+package org.ahoque.impl;
 
 import static org.junit.Assert.*;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import org.ahoque.Member;
+import org.ahoque.TitleCopy;
+import org.ahoque.impl.DVDImpl;
+import org.ahoque.impl.MemberImpl;
 import org.junit.Before;
 import org.junit.Test;
 
