@@ -82,7 +82,7 @@ public class LibraryImplTest {
 	
 	// determine current inventory for loanable items
 	@Test
-	public void givenTwoTitles_andOneIsLoaned_whenGetLoableItems_thenTheloableItemsShouldBeOne() {
+	public void givenTwoTitles_andOneIsLoaned_whenGetLoanableItems_thenTheloableItemsShouldBeOne() {
 		
 		List<TitleCopy> copies = library.findLoanableTileCopiesByName("WarGames");
 		TitleCopy warGamesCopy = copies.stream().findFirst().get();
