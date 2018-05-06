@@ -11,7 +11,7 @@ public class TitleImpl implements Title{
 
 	private final String title;
 	
-	private final List<TitleCopy> copies = new CopyOnWriteArrayList<>();
+	private final List<TitleCopy> items = new CopyOnWriteArrayList<>();
 	
 	public TitleImpl(String title) {
 		this.title = title;
@@ -23,21 +23,21 @@ public class TitleImpl implements Title{
 	}
 
 	@Override
-	public void addTitleCopy(TitleCopy copy) {
-		copies.add(copy);
+	public void addTitleCopy(TitleCopy item) {
+		items.add(item);
 	}
 
 	@Override
-	public List<TitleCopy> getLoanableCopies() {
-		return copies.stream()
-				.filter(copy -> copy.isLoanable())
+	public List<TitleCopy> getLoanableItems() {
+		return items.stream()
+				.filter(item -> item.isLoanable())
 				.collect(Collectors.toList());
 	}
 
 	@Override
-	public List<TitleCopy> getOverdueCopies() {
-		return copies.stream()
-				.filter(copy -> copy.isOverdue())
+	public List<TitleCopy> getOverdueItems() {
+		return items.stream()
+				.filter(item -> item.isOverdue())
 				.collect(Collectors.toList());
 	}
 }

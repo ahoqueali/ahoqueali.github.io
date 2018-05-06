@@ -6,7 +6,7 @@ import java.util.concurrent.atomic.AtomicReference;
 import org.ahoque.interfaces.Loan;
 import org.ahoque.interfaces.TitleCopy;
 
-public abstract class AbstractTitleCopy implements TitleCopy {
+public abstract class AbstractTitleItem implements TitleCopy {
 
 	private static final int HASH = 7;
 	private static final int HASH_PRIME = 31;
@@ -22,7 +22,7 @@ public abstract class AbstractTitleCopy implements TitleCopy {
 	 * 
 	 * @param id the unique identifier of the copy
 	 */
-	public AbstractTitleCopy(String id) {
+	public AbstractTitleItem(String id) {
 		this.id = id;
 		atomicRef = new AtomicReference<>(Optional.empty());
 	}

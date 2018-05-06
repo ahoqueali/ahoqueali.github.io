@@ -61,8 +61,8 @@ public class LibraryImplTest {
 	@Test
 	public void givenTheTitleWarGames_whenTheMemberHoqueBorrowsTheItem_thenTheItemShouldBeLoanedToMemberHoque() {
 
-		List<TitleCopy> copies = library.getLoanableTitleCopiesByName(WAR_GAMES);
-		TitleCopy warGamesCopy = copies.stream().findFirst().get();
+		List<TitleCopy> items = library.getLoanableTitleCopiesByName(WAR_GAMES);
+		TitleCopy warGamesCopy = items.stream().findFirst().get();
 
 		library.getMemberByUsername(USERNAME).borrowItem(warGamesCopy);
 		assertTrue(library.getMemberByUsername(USERNAME).getBorrowedItems().contains(warGamesCopy));
@@ -72,8 +72,8 @@ public class LibraryImplTest {
 	@Test
 	public void givenTheTitleWarGamesIsBorrowedByHoque_whenTheItemIsReturned_thenTheItemShouldBeRemovedFromHoquesLoanedList() {
 
-		List<TitleCopy> copies = library.getLoanableTitleCopiesByName(WAR_GAMES);
-		TitleCopy warGamesCopy = copies.stream().findFirst().get();
+		List<TitleCopy> items = library.getLoanableTitleCopiesByName(WAR_GAMES);
+		TitleCopy warGamesCopy = items.stream().findFirst().get();
 		library.getMemberByUsername(USERNAME).borrowItem(warGamesCopy);
 
 		TitleCopy borrowedCopy = library.getMemberByUsername(USERNAME).getBorrowedItems().stream().findFirst().get();
@@ -86,8 +86,8 @@ public class LibraryImplTest {
 	@Test
 	public void givenTheTitleWarGames_whenTheMemberHoqueBorrowsTheItem_thenTheItemShouldBeLoanedToMemberHoqueForSevenDays() {
 
-		List<TitleCopy> copies = library.getLoanableTitleCopiesByName(WAR_GAMES);
-		TitleCopy warGamesCopy = copies.stream().findFirst().get();
+		List<TitleCopy> items = library.getLoanableTitleCopiesByName(WAR_GAMES);
+		TitleCopy warGamesCopy = items.stream().findFirst().get();
 		library.getMemberByUsername(USERNAME).borrowItem(warGamesCopy);
 		
 		TitleCopy borrowedCopy = library.getMemberByUsername(USERNAME).getBorrowedItems().stream().findFirst().get();
@@ -100,8 +100,8 @@ public class LibraryImplTest {
 	@Test
 	public void givenTwoTitles_andOneIsLoaned_whenGetLoanableItems_thenTheloanbleItemsShouldBeOne() {
 
-		List<TitleCopy> copies = library.getLoanableTitleCopiesByName(WAR_GAMES);
-		TitleCopy warGamesCopy = copies.stream().findFirst().get();
+		List<TitleCopy> items = library.getLoanableTitleCopiesByName(WAR_GAMES);
+		TitleCopy warGamesCopy = items.stream().findFirst().get();
 		library.getMemberByUsername(USERNAME).borrowItem(warGamesCopy);
 
 		assertEquals(1, library.getLoanableTitles().size());
@@ -110,8 +110,8 @@ public class LibraryImplTest {
 	@Test
 	public void givenTwoTitles_andOneTitleHasTwoCopies_andOneCopyIsLoaned_whenGetLoanableItems_thenTheloanableItemsShouldBeTwo() {
 
-		List<TitleCopy> copies = library.getLoanableTitleCopiesByName(THE_TALE_OF_PETTER_RABBIT);
-		TitleCopy theTaleOfPeterRabbitCopy = copies.stream().findFirst().get();
+		List<TitleCopy> items = library.getLoanableTitleCopiesByName(THE_TALE_OF_PETTER_RABBIT);
+		TitleCopy theTaleOfPeterRabbitCopy = items.stream().findFirst().get();
 		library.getMemberByUsername(USERNAME).borrowItem(theTaleOfPeterRabbitCopy);
 
 		assertEquals(2, library.getLoanableTitles().size());
@@ -121,8 +121,8 @@ public class LibraryImplTest {
 	@Test
 	public void givenOneOverdueItem_andOneNotOverdueItem_whenGetAllOverdueItems_thenTheOverdueItemShouldBeOne() {
 
-		List<TitleCopy> copies = library.getLoanableTitleCopiesByName(THE_TALE_OF_PETTER_RABBIT);
-		TitleCopy theTaleOfPeterRabbitCopy = copies.stream().findFirst().get();
+		List<TitleCopy> items = library.getLoanableTitleCopiesByName(THE_TALE_OF_PETTER_RABBIT);
+		TitleCopy theTaleOfPeterRabbitCopy = items.stream().findFirst().get();
 		library.getMemberByUsername(USERNAME).borrowItem(theTaleOfPeterRabbitCopy,
 				new LoanImpl( 
 						LocalDate.now().minusDays(8), 

@@ -36,7 +36,7 @@ public class LibraryImpl implements Library {
 	public List<TitleCopy> getLoanableTitleCopiesByName(String name) {
 		return inventory.getLoanableTitles().stream()
 				.filter(title -> title.getTitle().equals(name))
-				.flatMap(title -> title.getLoanableCopies().stream())
+				.flatMap(title -> title.getLoanableItems().stream())
 				.collect(Collectors.toList());
 	}
 
@@ -63,7 +63,7 @@ public class LibraryImpl implements Library {
 	@Override
 	public List<TitleCopy> getOverdueItems() {
 		return inventory.getOverdueTitles().stream()
-				.flatMap(title -> title.getOverdueCopies().stream())
+				.flatMap(title -> title.getOverdueItems().stream())
 				.collect(Collectors.toList());
 	}
 
@@ -71,7 +71,7 @@ public class LibraryImpl implements Library {
 	public <T> List<T> getLoanableTitleCopiesByNameAndType(String name, Class<T> clazz) {
 		return inventory.getLoanableTitles().stream()
 				.filter(title -> title.getTitle().equals(name))
-				.flatMap(title -> title.getLoanableCopies().stream())
+				.flatMap(title -> title.getLoanableItems().stream())
 				.filter(clazz::isInstance)
 				.map(copy -> (T)copy)
 				.collect(Collectors.toList());

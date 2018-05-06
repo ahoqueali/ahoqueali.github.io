@@ -6,9 +6,9 @@ public interface Title {
 
 	public String getTitle();
 	
-	public void addTitleCopy(TitleCopy copy);
+	public void addTitleCopy(TitleCopy item);
 	
-	public List<TitleCopy> getLoanableCopies();
+	public List<TitleCopy> getLoanableItems();
 
-	public List<TitleCopy> getOverdueCopies();
+	public List<TitleCopy> getOverdueItems();
 }

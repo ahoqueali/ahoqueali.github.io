@@ -30,8 +30,8 @@ public class InventoryImplTest {
 	public void givenAnEmptyInventory_whenAddItem_andGetLonableItems_thenTheInventoryShouldHaveOneItem() {
 		
 		Title title = new TitleImpl("Star Wars");
-		TitleCopy copy = new DVDImpl("1323");
-		title.addTitleCopy(copy);
+		TitleCopy item = new DVDImpl("1323");
+		title.addTitleCopy(item);
 		inventory.addTitle(title);
 		
 		assertEquals(1, inventory.getLoanableTitles().size());

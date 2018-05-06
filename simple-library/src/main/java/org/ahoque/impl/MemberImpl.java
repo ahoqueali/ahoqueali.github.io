@@ -32,29 +32,30 @@ public class MemberImpl implements Member {
 	}
 
 	@Override
-	public void borrowItem(TitleCopy copy) {
+	public void borrowItem(TitleCopy item) {
 
+		LoanImpl loan = new LoanImpl();
+		
 		reentrantLock.lock();
-
+		
 		try {
 			// critical section to stop multiple threads loaning the same copy
-			LoanImpl loan = new LoanImpl();
-			copy.setLoan(loan);
-			borrowedCopies.add(copy);
+			item.setLoan(loan);
+			borrowedCopies.add(item);
 		}finally {
 			reentrantLock.unlock();
 		}
 	}
 	
 	@Override
-	public void borrowItem(TitleCopy copy, Loan loan) {
+	public void borrowItem(TitleCopy item, Loan loan) {
 		
 		reentrantLock.lock();
 
 		try {
 			// critical section to stop multiple threads loaning the same copy
-			copy.setLoan(loan);
-			borrowedCopies.add(copy);
+			item.setLoan(loan);
+			borrowedCopies.add(item);
 		}finally {
 			reentrantLock.unlock();
 		}

@@ -16,7 +16,7 @@ public class InventoryImpl implements Inventory {
 	@Override
 	public List<Title> getLoanableTitles() {
 		return titles.values().stream()
-				.filter(title -> title.getLoanableCopies().size() > 0)
+				.filter(title -> title.getLoanableItems().size() > 0)
 				.collect(Collectors.toList());
 	}
 
@@ -28,7 +28,7 @@ public class InventoryImpl implements Inventory {
 	@Override
 	public List<Title> getOverdueTitles() {
 		return titles.values().stream()
-				.filter(title -> title.getOverdueCopies().size() > 0)
+				.filter(title -> title.getOverdueItems().size() > 0)
 				.collect(Collectors.toList());
 	}
 

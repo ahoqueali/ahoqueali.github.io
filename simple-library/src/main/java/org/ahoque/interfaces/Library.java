@@ -6,7 +6,7 @@ public interface Library {
 
 	Member getMemberByUsername(String name);
 	
-	List<TitleCopy> getLoanableTitleCopiesByName(String string);
+	List<TitleCopy> getLoanableTitleCopiesByName(String name);
 	
 	void addItemToInventory(Title item);
 	
