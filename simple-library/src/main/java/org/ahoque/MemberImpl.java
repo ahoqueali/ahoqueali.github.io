@@ -3,7 +3,6 @@ package org.ahoque;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.concurrent.locks.ReentrantLock;
-import java.util.stream.Collectors;
 
 public class MemberImpl implements Member {
 
@@ -35,12 +34,27 @@ public class MemberImpl implements Member {
 
 		try {
 			// critical section to stop multiple threads loaning the same copy
-			LoanImpl loan = new LoanImpl(copy);
+			LoanImpl loan = new LoanImpl();
 			copy.setLoan(loan);
 			borrowedCopies.add(copy);
 		}finally {
 			reentrantLock.unlock();
 		}
+	}
+	
+	@Override
+	public void borrowItem(TitleCopy copy, Loan loan) {
+		
+		reentrantLock.lock();
+
+		try {
+			// critical section to stop multiple threads loaning the same copy
+			copy.setLoan(loan);
+			borrowedCopies.add(copy);
+		}finally {
+			reentrantLock.unlock();
+		}
+		
 	}
 
 	@Override

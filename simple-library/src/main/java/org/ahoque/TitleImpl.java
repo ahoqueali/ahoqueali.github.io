@@ -7,13 +7,11 @@ import java.util.stream.Collectors;
 public class TitleImpl implements Title{
 
 	private final String title;
-	private final String publisher;
 	
 	private final List<TitleCopy> copies = new CopyOnWriteArrayList<>();
 	
-	public TitleImpl(String title, String publisher) {
+	public TitleImpl(String title) {
 		this.title = title;
-		this.publisher = publisher;
 	}
 
 	@Override
@@ -22,7 +20,7 @@ public class TitleImpl implements Title{
 	}
 
 	@Override
-	public void add(TitleCopy copy) {
+	public void addTitleCopy(TitleCopy copy) {
 		copies.add(copy);
 	}
 

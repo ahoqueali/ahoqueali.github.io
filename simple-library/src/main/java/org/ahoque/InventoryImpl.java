@@ -18,7 +18,7 @@ public class InventoryImpl implements Inventory {
 	}
 
 	@Override
-	public void add(Title item) {
+	public void addTitle(Title item) {
 		titles.put(item.getTitle(), item);
 	}
 
@@ -27,5 +27,10 @@ public class InventoryImpl implements Inventory {
 		return titles.values().stream()
 				.filter(title -> title.getOverdueCopies().size() > 0)
 				.collect(Collectors.toList());
+	}
+
+	@Override
+	public Title getTitleByName(String name) {
+		return titles.get(name);
 	}
 }

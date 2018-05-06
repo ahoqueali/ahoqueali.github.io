@@ -33,19 +33,14 @@ public abstract class AbstractTitleCopy implements TitleCopy {
 	public boolean isLoanable() {
 		return !atomicRef.get().isPresent();
 	}
-	
+
 	@Override
 	public boolean isOverdue() {
-		
-		if(atomicRef.get().isPresent()) {
-			atomicRef.get().get().isOverdue();
-		}
-		
-		return false;
+		return atomicRef.get().map(loan -> loan.isOverdue()).orElse(false);
 	}
 
 	@Override
-	public void setLoan(LoanImpl loan) {
+	public void setLoan(Loan loan) {
 		this.atomicRef.getAndSet(Optional.of(loan));
 	}
 

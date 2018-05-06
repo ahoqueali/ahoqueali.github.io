@@ -6,7 +6,7 @@ public interface Title {
 
 	public String getTitle();
 	
-	public void add(TitleCopy copy);
+	public void addTitleCopy(TitleCopy copy);
 	
 	public List<TitleCopy> getLoanableCopies();
 

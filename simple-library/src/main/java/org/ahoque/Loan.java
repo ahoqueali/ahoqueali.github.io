@@ -4,9 +4,7 @@ import java.time.Period;
 
 public interface Loan {
 
-	public TitleCopy getItem();
-
-	public Period getPeriod();
-
 	public boolean isOverdue();
+
+	public Period getLoanPeriod();
 }

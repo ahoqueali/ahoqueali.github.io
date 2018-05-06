@@ -27,8 +27,7 @@ public class LibraryImpl implements Library {
 	 *  @return loanable copies or empty list
 	 */
 	@Override
-	public List<TitleCopy> findLoanableTileCopiesByName(String name) {
-		
+	public List<TitleCopy> getAllLoanableTitleCopiesByName(String name) {
 		return inventory.getLoanableTitles().stream()
 				.filter(title -> title.getTitle().equals(name))
 				.flatMap(title -> title.getLoanableCopies().stream())
@@ -37,7 +36,7 @@ public class LibraryImpl implements Library {
 
 	@Override
 	public void addItemToInventory(Title item) {
-		inventory.add(item);
+		inventory.addTitle(item);
 	}
 
 	@Override
@@ -48,5 +47,17 @@ public class LibraryImpl implements Library {
 	@Override
 	public List<Title> getLoanableTitles() {
 		return inventory.getLoanableTitles(); 
+	}
+
+	@Override
+	public Title getTitleByName(String name) {
+		return inventory.getTitleByName(name);
+	}
+
+	@Override
+	public List<TitleCopy> getAllOverdueItems() {
+		return inventory.getOverdueTitles().stream()
+				.flatMap(title -> title.getOverdueCopies().stream())
+				.collect(Collectors.toList());
 	}
 }

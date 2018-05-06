@@ -6,7 +6,9 @@ public interface Inventory {
 
 	List<Title> getLoanableTitles();
 	
-	void add(Title item);
+	void addTitle(Title item);
 
 	List<Title> getOverdueTitles();
+
+	Title getTitleByName(String name);
 }

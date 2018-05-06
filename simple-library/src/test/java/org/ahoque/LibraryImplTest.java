@@ -4,6 +4,7 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,7 +15,10 @@ import org.junit.Test;
 
 public class LibraryImplTest {
 
-	private static final int LOAN_PERIOD_IN_DAYS = 7;
+	private static final String AHOQUEALI = "ahoqueali";
+	private static final String WAR_GAMES = "WarGames";
+	private static final String THE_TALE_OF_PETTER_RABBIT = "The tale of Petter Rabbit";
+
 	private Library library;
 
 	@Before
@@ -22,22 +26,22 @@ public class LibraryImplTest {
 
 		library = new LibraryImpl();
 
-		Title warGames = new TitleImpl("WarGames", "Metro-Goldwyn-Mayer Studios Inc");
+		Title warGames = new TitleImpl(WAR_GAMES);
 		TitleCopy warGamesCopy = new DVDImpl("D2111");
-		warGames.add(warGamesCopy);
+		warGames.addTitleCopy(warGamesCopy);
 		library.addItemToInventory(warGames);
 
-		Title theTaleOfPeterRabbit = new TitleImpl("The tale of Petter Rabbit", "Frederick Warne & co");
+		Title theTaleOfPeterRabbit = new TitleImpl(THE_TALE_OF_PETTER_RABBIT);
 
 		TitleCopy peterRabbitCopy = new BookImpl("B2234");
-		theTaleOfPeterRabbit.add(peterRabbitCopy);
+		theTaleOfPeterRabbit.addTitleCopy(peterRabbitCopy);
 
 		TitleCopy peterRabbitCopy2 = new BookImpl("B2235");
-		theTaleOfPeterRabbit.add(peterRabbitCopy2);
+		theTaleOfPeterRabbit.addTitleCopy(peterRabbitCopy2);
 
 		library.addItemToInventory(theTaleOfPeterRabbit);
 
-		Member member = new MemberImpl("ahoqueali");
+		Member member = new MemberImpl(AHOQUEALI);
 		library.addMember(member);
 	}
 
@@ -45,48 +49,49 @@ public class LibraryImplTest {
 	@Test
 	public void givenTheTitleWarGames_whenTheMemberHoqueBorrowsTheItem_thenTheItemShouldBeLoanedToMemberHoque() {
 
-		List<TitleCopy> copies = library.findLoanableTileCopiesByName("WarGames");
+		List<TitleCopy> copies = library.getAllLoanableTitleCopiesByName(WAR_GAMES);
 		TitleCopy warGamesCopy = copies.stream().findFirst().get();
 
-		library.getMemberByUsername("ahoqueali").borrowItem(warGamesCopy);
-		assertTrue(library.getMemberByUsername("ahoqueali").getBorrowedItems().contains(warGamesCopy));
+		library.getMemberByUsername(AHOQUEALI).borrowItem(warGamesCopy);
+		assertTrue(library.getMemberByUsername(AHOQUEALI).getBorrowedItems().contains(warGamesCopy));
 	}
 
 	// return items
 	@Test
 	public void givenTheTitleWarGamesIsBorrowedByHoque_whenTheItemIsReturned_thenTheItemShouldBeRemovedFromHoquesLoanedList() {
 
-		List<TitleCopy> copies = library.findLoanableTileCopiesByName("WarGames");
+		List<TitleCopy> copies = library.getAllLoanableTitleCopiesByName(WAR_GAMES);
 		TitleCopy warGamesCopy = copies.stream().findFirst().get();
-		library.getMemberByUsername("ahoqueali").borrowItem(warGamesCopy);
+		library.getMemberByUsername(AHOQUEALI).borrowItem(warGamesCopy);
 
-		TitleCopy borrowedCopy = library.getMemberByUsername("ahoqueali").getBorrowedItems().stream().findFirst().get();
-		library.getMemberByUsername("ahoqueali").returnItem(borrowedCopy);
+		TitleCopy borrowedCopy = library.getMemberByUsername(AHOQUEALI).getBorrowedItems().stream().findFirst().get();
+		library.getMemberByUsername(AHOQUEALI).returnItem(borrowedCopy);
 
-		assertFalse(library.getMemberByUsername("ahoqueali").getBorrowedItems().contains(warGamesCopy));
+		assertFalse(library.getMemberByUsername(AHOQUEALI).getBorrowedItems().contains(warGamesCopy));
 	}
 
 	// borrow items for a period of one week
 	@Test
 	public void givenTheTitleWarGames_whenTheMemberHoqueBorrowsTheItem_thenTheItemShouldBeLoanedToMemberHoqueForSevenDays() {
 
-		List<TitleCopy> copies = library.findLoanableTileCopiesByName("WarGames");
+		List<TitleCopy> copies = library.getAllLoanableTitleCopiesByName(WAR_GAMES);
 		TitleCopy warGamesCopy = copies.stream().findFirst().get();
 
-		library.getMemberByUsername("ahoqueali").borrowItem(warGamesCopy);
-		TitleCopy borrowedCopy = library.getMemberByUsername("ahoqueali").getBorrowedItems().stream().findFirst().get();
+		library.getMemberByUsername(AHOQUEALI).borrowItem(warGamesCopy);
+		TitleCopy borrowedCopy = library.getMemberByUsername(AHOQUEALI).getBorrowedItems().stream().findFirst().get();
 
 		Loan loan = borrowedCopy.getLoan().get();
-		assertEquals(LOAN_PERIOD_IN_DAYS, loan.getPeriod().getDays());
+
+		assertEquals(7, loan.getLoanPeriod().getDays());
 	}
 
 	// determine current inventory for loanable items
 	@Test
 	public void givenTwoTitles_andOneIsLoaned_whenGetLoanableItems_thenTheloanbleItemsShouldBeOne() {
 
-		List<TitleCopy> copies = library.findLoanableTileCopiesByName("WarGames");
+		List<TitleCopy> copies = library.getAllLoanableTitleCopiesByName(WAR_GAMES);
 		TitleCopy warGamesCopy = copies.stream().findFirst().get();
-		library.getMemberByUsername("ahoqueali").borrowItem(warGamesCopy);
+		library.getMemberByUsername(AHOQUEALI).borrowItem(warGamesCopy);
 
 		assertEquals(1, library.getLoanableTitles().size());
 	}
@@ -94,24 +99,25 @@ public class LibraryImplTest {
 	@Test
 	public void givenTwoTitles_andOneTitleHasTwoCopies_andOneCopyIsLoaned_whenGetLoanableItems_thenTheloanableItemsShouldBeTwo() {
 
-		List<TitleCopy> copies = library.findLoanableTileCopiesByName("The tale of Petter Rabbit");
-		TitleCopy theTableOfPeterRabbitCopy = copies.stream().findFirst().get();
-		library.getMemberByUsername("ahoqueali").borrowItem(theTableOfPeterRabbitCopy);
+		List<TitleCopy> copies = library.getAllLoanableTitleCopiesByName(THE_TALE_OF_PETTER_RABBIT);
+		TitleCopy theTaleOfPeterRabbitCopy = copies.stream().findFirst().get();
+		library.getMemberByUsername(AHOQUEALI).borrowItem(theTaleOfPeterRabbitCopy);
 
 		assertEquals(2, library.getLoanableTitles().size());
 	}
 
 	// determine all overdue items
 	@Test
-	public void givenTwoOverdueItems_andFiveNotOverDueItems_whenGetAllOverDueItems_thenTheOverdueItemsShouldBeTwo() {
+	public void givenOneOverdueItem_andOneNotOverdueItem_whenGetAllOverdueItems_thenTheOverdueItemShouldBeOne() {
 
-//		for(int i = 0; i < 5; i++) {
-//
-//			List<TitleCopy> copies = library.findLoanableTileCopiesByName("not over due item" + i);
-//			TitleCopy theTableOfPeterRabbitCopy = copies.stream().findFirst().get();
-//			library.getMemberByUsername("ahoqueali").borrowItem(theTableOfPeterRabbitCopy);
-//		}
+		List<TitleCopy> copies = library.getAllLoanableTitleCopiesByName(THE_TALE_OF_PETTER_RABBIT);
+		TitleCopy theTaleOfPeterRabbitCopy = copies.stream().findFirst().get();
+		library.getMemberByUsername(AHOQUEALI).borrowItem(theTaleOfPeterRabbitCopy,
+				new LoanImpl( 
+						LocalDate.now().minusDays(8), 
+						LocalDate.now().minusDays(1)));
 
+		assertEquals(1, library.getAllOverdueItems().size());
 	}
 
 
@@ -121,17 +127,17 @@ public class LibraryImplTest {
 
 		List<TitleCopy> expectedBorrowedItems = new ArrayList<>();
 
-		List<TitleCopy> warGamesCopies = library.findLoanableTileCopiesByName("WarGames");
+		List<TitleCopy> warGamesCopies = library.getAllLoanableTitleCopiesByName(WAR_GAMES);
 		TitleCopy warGamesCopy = warGamesCopies.stream().findFirst().get();
-		library.getMemberByUsername("ahoqueali").borrowItem(warGamesCopy);
+		library.getMemberByUsername(AHOQUEALI).borrowItem(warGamesCopy);
 		expectedBorrowedItems.add(warGamesCopy);
 
-		List<TitleCopy> peterRabbitCopies = library.findLoanableTileCopiesByName("The tale of Petter Rabbit");
-		TitleCopy theTableOfPeterRabbitCopy = peterRabbitCopies.stream().findFirst().get();
-		library.getMemberByUsername("ahoqueali").borrowItem(theTableOfPeterRabbitCopy);
-		expectedBorrowedItems.add(theTableOfPeterRabbitCopy);
+		List<TitleCopy> peterRabbitCopies = library.getAllLoanableTitleCopiesByName(THE_TALE_OF_PETTER_RABBIT);
+		TitleCopy theTaleOfPeterRabbitCopy = peterRabbitCopies.stream().findFirst().get();
+		library.getMemberByUsername(AHOQUEALI).borrowItem(theTaleOfPeterRabbitCopy);
+		expectedBorrowedItems.add(theTaleOfPeterRabbitCopy);
 
-		assertEquals(expectedBorrowedItems, library.getMemberByUsername("ahoqueali").getBorrowedItems());
+		assertEquals(expectedBorrowedItems, library.getMemberByUsername(AHOQUEALI).getBorrowedItems());
 	}
 
 	// determine if a book is available to borrow  -- handle generics

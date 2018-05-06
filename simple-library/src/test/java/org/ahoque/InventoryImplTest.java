@@ -25,29 +25,29 @@ public class InventoryImplTest {
 	@Test
 	public void givenAnEmptyInventory_whenAddItem_andGetLonableItems_thenTheInventoryShouldHaveOneItem() {
 		
-		Title title = new TitleImpl("Star Wars", "Marvel Comics");
+		Title title = new TitleImpl("Star Wars");
 		TitleCopy copy = new DVDImpl("1323");
-		title.add(copy);
-		inventory.add(title);
+		title.addTitleCopy(copy);
+		inventory.addTitle(title);
 		
 		assertEquals(1, inventory.getLoanableTitles().size());
 	}
 
 	@Test
-	public void givenTheInventoryHasTwoTitles_andOneIsOverdue_whenGetAllOverdueItems_thenTheOverdueItemsShouldBeOne() {
+	public void givenTheInventoryHasTwoTitles_andOneIsOverdue_whenGetAllOverdueItems_thenTheOverdueItemShouldBeOne() {
 		
-		Title starWars = new TitleImpl("Star Wars", "Marvel Comics");
+		Title starWars = new TitleImpl("Star Wars");
 		TitleCopy loanableItem = new DVDImpl("1323");
-		starWars.add(loanableItem);
-		inventory.add(starWars);
+		starWars.addTitleCopy(loanableItem);
+		inventory.addTitle(starWars);
 		
-		Title airplane = new TitleImpl("Airplane!", "Paramount Pictures");
+		Title airplane = new TitleImpl("Airplane!");
 
 		TitleCopy overdueItem = Mockito.mock(DVDImpl.class);
 		Mockito.when(overdueItem.isOverdue()).thenReturn(true);
 		
-		airplane.add(overdueItem);
-		inventory.add(airplane);
+		airplane.addTitleCopy(overdueItem);
+		inventory.addTitle(airplane);
 		
 		assertEquals(1, inventory.getOverdueTitles().size());
 	}

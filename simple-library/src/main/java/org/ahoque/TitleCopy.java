@@ -6,7 +6,7 @@ public interface TitleCopy {
 	
 	public boolean isLoanable();
 	
-	public void setLoan(LoanImpl loan);
+	public void setLoan(Loan loan);
 	
 	public String getId();
 	
