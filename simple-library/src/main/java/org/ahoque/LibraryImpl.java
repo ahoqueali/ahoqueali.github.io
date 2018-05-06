@@ -27,7 +27,7 @@ public class LibraryImpl implements Library {
 	 *  @return loanable copies or empty list
 	 */
 	@Override
-	public List<TitleCopy> findTileCopiesByName(String name) {
+	public List<TitleCopy> findLoanableTileCopiesByName(String name) {
 		
 		return inventory.getLoanableTitles().stream()
 				.filter(title -> title.getTitle().equals(name))
@@ -44,6 +44,9 @@ public class LibraryImpl implements Library {
 	public void addMember(Member member) {
 		members.add(member);
 	}
-	
-	
+
+	@Override
+	public List<Title> getLoanableTitles() {
+		return inventory.getLoanableTitles(); 
+	}
 }

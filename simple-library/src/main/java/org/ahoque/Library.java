@@ -6,9 +6,11 @@ public interface Library {
 
 	Member getMemberByUsername(String name);
 	
-	List<TitleCopy> findTileCopiesByName(String string);
+	List<TitleCopy> findLoanableTileCopiesByName(String string);
 	
 	void addItemToInventory(Title item);
 	
 	void addMember(Member member);
+
+	List<Title> getLoanableTitles();
 }
