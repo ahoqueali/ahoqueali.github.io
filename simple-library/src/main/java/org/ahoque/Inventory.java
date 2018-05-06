@@ -7,4 +7,6 @@ public interface Inventory {
 	List<Title> getLoanableTitles();
 	
 	void add(Title item);
+
+	List<Title> getOverdueTitles();
 }

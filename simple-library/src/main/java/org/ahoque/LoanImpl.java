@@ -29,4 +29,9 @@ public class LoanImpl implements Loan {
 	public Period getPeriod() {
 		return period;
 	}
+	
+	@Override
+	public boolean isOverdue() {
+		return LocalDate.now().isAfter(endDate);
+	}
 }

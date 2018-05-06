@@ -7,4 +7,6 @@ public interface Loan {
 	public TitleCopy getItem();
 
 	public Period getPeriod();
+
+	public boolean isOverdue();
 }

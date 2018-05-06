@@ -6,6 +6,7 @@ import org.ahoque.Inventory;
 import org.ahoque.InventoryImpl;
 import org.junit.Before;
 import org.junit.Test;
+import org.mockito.Mockito;
 
 public class InventoryImplTest {
 
@@ -33,15 +34,21 @@ public class InventoryImplTest {
 	}
 
 	@Test
-	public void givenTenTitles_whenTheItemsAreAdded_thenTheLoanableItemShouldBeTen() {
+	public void givenTheInventoryHasTwoTitles_andOneIsOverdue_whenGetAllOverdueItems_thenTheOverdueItemsShouldBeOne() {
 		
-		for(int i = 0; i < 10; i++) {
-			Title title = new TitleImpl("Friends part" + (i + 1), "MGM");
-			TitleCopy copy = new DVDImpl("1323" + i);
-			title.add(copy);
-			inventory.add(title);
-		}
+		Title starWars = new TitleImpl("Star Wars", "Marvel Comics");
+		TitleCopy loanableItem = new DVDImpl("1323");
+		starWars.add(loanableItem);
+		inventory.add(starWars);
 		
-		assertEquals(10, inventory.getLoanableTitles().size());
+		Title airplane = new TitleImpl("Airplane!", "Paramount Pictures");
+
+		TitleCopy overdueItem = Mockito.mock(DVDImpl.class);
+		Mockito.when(overdueItem.isOverdue()).thenReturn(true);
+		
+		airplane.add(overdueItem);
+		inventory.add(airplane);
+		
+		assertEquals(1, inventory.getOverdueTitles().size());
 	}
 }

@@ -13,4 +13,6 @@ public interface TitleCopy {
 	public void removeLoan();
 	
 	public Optional<Loan> getLoan();
+
+	public boolean isOverdue();
 }

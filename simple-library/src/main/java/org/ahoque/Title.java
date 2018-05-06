@@ -1,6 +1,6 @@
 package org.ahoque;
 
-import java.util.Collection;
+import java.util.List;
 
 public interface Title {
 
@@ -8,5 +8,7 @@ public interface Title {
 	
 	public void add(TitleCopy copy);
 	
-	public Collection<TitleCopy> getLoanableCopies();
+	public List<TitleCopy> getLoanableCopies();
+
+	public List<TitleCopy> getOverdueCopies();
 }
