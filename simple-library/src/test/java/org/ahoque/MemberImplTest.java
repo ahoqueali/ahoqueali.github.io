@@ -19,7 +19,7 @@ public class MemberImplTest {
 
 	@Test
 	public void givenThatTheMemberHasNotBorrowedAnyItem_whenGetLoanItems_thenTheNumberOfLoanItemShouldBeZero() {
-		assertEquals(member.getLoanItems().size(), 0);
+		assertEquals(member.getBorrowedItems().size(), 0);
 	}
 	
 	@Test
@@ -28,7 +28,7 @@ public class MemberImplTest {
 		TitleCopy item = new DVDImpl("1234");
 		member.borrowItem(item);
 		
-		assertEquals(1, member.getLoanItems().size());
+		assertEquals(1, member.getBorrowedItems().size());
 	}
 	
 	@Test
@@ -37,7 +37,7 @@ public class MemberImplTest {
 		TitleCopy item = new DVDImpl("1234");
 		member.returnItem(item);
 
-		assertEquals(0, member.getLoanItems().size());
+		assertEquals(0, member.getBorrowedItems().size());
 	}
 
 	@Test
@@ -54,12 +54,12 @@ public class MemberImplTest {
 		member.returnItem(new DVDImpl("23432"));
 		member.returnItem(new DVDImpl("132432"));
 
-		assertEquals(2, member.getLoanItems().size());
+		assertEquals(2, member.getBorrowedItems().size());
 		
 		List<TitleCopy> expectedLoanedItems = new ArrayList<>();
 		expectedLoanedItems.add(new DVDImpl("1234"));
 		expectedLoanedItems.add(new DVDImpl("32432"));
 		
-		assertEquals(expectedLoanedItems, member.getLoanItems());
+		assertEquals(expectedLoanedItems, member.getBorrowedItems());
 	}
 }

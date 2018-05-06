@@ -4,6 +4,7 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.ahoque.Library;
@@ -48,7 +49,7 @@ public class LibraryImplTest {
 		TitleCopy warGamesCopy = copies.stream().findFirst().get();
 		
 		library.getMemberByUsername("ahoqueali").borrowItem(warGamesCopy);
-		assertTrue(library.getMemberByUsername("ahoqueali").getLoanItems().contains(warGamesCopy));
+		assertTrue(library.getMemberByUsername("ahoqueali").getBorrowedItems().contains(warGamesCopy));
 	}
 
 	// return items
@@ -59,10 +60,10 @@ public class LibraryImplTest {
 		TitleCopy warGamesCopy = copies.stream().findFirst().get();
 		library.getMemberByUsername("ahoqueali").borrowItem(warGamesCopy);
 		
-		TitleCopy borrowedCopy = library.getMemberByUsername("ahoqueali").getLoanItems().stream().findFirst().get();
+		TitleCopy borrowedCopy = library.getMemberByUsername("ahoqueali").getBorrowedItems().stream().findFirst().get();
 		library.getMemberByUsername("ahoqueali").returnItem(borrowedCopy);
 		
-		assertFalse(library.getMemberByUsername("ahoqueali").getLoanItems().contains(warGamesCopy));
+		assertFalse(library.getMemberByUsername("ahoqueali").getBorrowedItems().contains(warGamesCopy));
 	}
 	
 	// borrow items for a period of one week
@@ -73,12 +74,11 @@ public class LibraryImplTest {
 		TitleCopy warGamesCopy = copies.stream().findFirst().get();
 		
 		library.getMemberByUsername("ahoqueali").borrowItem(warGamesCopy);
-		TitleCopy borrowedCopy = library.getMemberByUsername("ahoqueali").getLoanItems().stream().findFirst().get();
+		TitleCopy borrowedCopy = library.getMemberByUsername("ahoqueali").getBorrowedItems().stream().findFirst().get();
 		
 		Loan loan = borrowedCopy.getLoan().get();
 		assertEquals(LOAN_PERIOD_IN_DAYS, loan.getPeriod().getDays());
 	}
-	
 	
 	// determine current inventory for loanable items
 	@Test
@@ -104,8 +104,25 @@ public class LibraryImplTest {
 	// determine all overdue items
 	
 	// determine borrowed items for a user
+	@Test
+	public void givenMemberHoqueBorrowsTwoItems_whenGetBorrowedItemsForAMember_thenTheReturnedItemsShouldBeTheTwoBorrowedItems() {
+
+		List<TitleCopy> expectedBorrowedItems = new ArrayList<>();
+		
+		List<TitleCopy> warGamesCopies = library.findLoanableTileCopiesByName("WarGames");
+		TitleCopy warGamesCopy = warGamesCopies.stream().findFirst().get();
+		library.getMemberByUsername("ahoqueali").borrowItem(warGamesCopy);
+		expectedBorrowedItems.add(warGamesCopy);
+		
+		List<TitleCopy> peterRabbitCopies = library.findLoanableTileCopiesByName("The tale of Petter Rabbit");
+		TitleCopy theTableOfPeterRabbitCopy = peterRabbitCopies.stream().findFirst().get();
+		library.getMemberByUsername("ahoqueali").borrowItem(theTableOfPeterRabbitCopy);
+		expectedBorrowedItems.add(theTableOfPeterRabbitCopy);
+		
+		assertEquals(expectedBorrowedItems, library.getMemberByUsername("ahoqueali").getBorrowedItems());
+	}
 	
-	// determine if a book is available to borrow
+	// determine if a book is available to borrow  -- handle generics
 	
 	
 }

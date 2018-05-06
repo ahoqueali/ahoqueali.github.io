@@ -6,7 +6,7 @@ public interface Member {
 
 	public String getName();
 	
-	public List<TitleCopy> getLoanItems();
+	public List<TitleCopy> getBorrowedItems();
 	
 	public void borrowItem(TitleCopy copy);
 	

@@ -15,28 +15,24 @@ public class MemberImpl implements Member {
 	private static final ReentrantLock reentrantLock = new ReentrantLock();
 
 	public MemberImpl(final String username) {
-
 		this.username = username;
 	}
 
 	@Override
 	public String getName() {
-
 		return username;
 	}
 
 	@Override
-	public List<TitleCopy> getLoanItems() {
-
-		return borrowedCopies.stream()
-				.collect(Collectors.toList());
+	public List<TitleCopy> getBorrowedItems() {
+		return borrowedCopies;
 	}
 
 	@Override
 	public void borrowItem(TitleCopy copy) {
 
 		reentrantLock.lock();
-		
+
 		try {
 			// critical section to stop multiple threads loaning the same copy
 			LoanImpl loan = new LoanImpl(copy);
@@ -50,12 +46,22 @@ public class MemberImpl implements Member {
 	@Override
 	public void returnItem(TitleCopy copy) {
 
+
 		borrowedCopies.stream()
 		.filter(c -> c.equals(copy))
 		.forEach(c -> {
-			borrowedCopies.remove(copy);
-			copy.removeLoan();
+			
+			reentrantLock.lock();
+			
+			try {
+				// critical section to stop multiple threads from updating
+				borrowedCopies.remove(copy);
+				copy.removeLoan();
+			}finally {
+				reentrantLock.unlock();
+			}
 		});
+
 	}
 
 }

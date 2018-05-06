@@ -44,6 +44,4 @@ public class InventoryImplTest {
 		
 		assertEquals(10, inventory.getLoanableTitles().size());
 	}
-	
-	//lonable and not loanable
 }
