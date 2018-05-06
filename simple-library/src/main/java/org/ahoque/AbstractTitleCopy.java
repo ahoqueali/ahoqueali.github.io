@@ -59,7 +59,7 @@ public abstract class AbstractTitleCopy implements TitleCopy {
 	@Override
 	public boolean equals(Object obj) {
 
-		// check if memeory address is the same
+		// check if memory address is the same
 		if(obj == this) {
 			return true;
 		}
