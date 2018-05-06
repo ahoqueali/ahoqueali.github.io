@@ -9,9 +9,9 @@ public class MemberImpl implements Member {
 
 	private final String username;
 
-	private final List<TitleCopy> copies = new CopyOnWriteArrayList<>();
+	private final List<TitleCopy> borrowedCopies = new CopyOnWriteArrayList<>();
 
-	// Static lock so that there is just one lock that all tread need to go through
+	// Static lock so that there is just one lock that all treads need to go through
 	private static final ReentrantLock reentrantLock = new ReentrantLock();
 
 	public MemberImpl(final String username) {
@@ -28,7 +28,7 @@ public class MemberImpl implements Member {
 	@Override
 	public List<TitleCopy> getLoanItems() {
 
-		return copies.stream()
+		return borrowedCopies.stream()
 				.collect(Collectors.toList());
 	}
 
@@ -38,9 +38,10 @@ public class MemberImpl implements Member {
 		reentrantLock.lock();
 		
 		try {
+			// critical section to stop multiple threads loaning the same copy
 			LoanImpl loan = new LoanImpl(copy);
 			copy.setLoan(loan);
-			copies.add(copy);
+			borrowedCopies.add(copy);
 		}finally {
 			reentrantLock.unlock();
 		}
@@ -49,10 +50,10 @@ public class MemberImpl implements Member {
 	@Override
 	public void returnItem(TitleCopy copy) {
 
-		copies.stream()
+		borrowedCopies.stream()
 		.filter(c -> c.equals(copy))
 		.forEach(c -> {
-			copies.remove(copy);
+			borrowedCopies.remove(copy);
 			copy.removeLoan();
 		});
 	}

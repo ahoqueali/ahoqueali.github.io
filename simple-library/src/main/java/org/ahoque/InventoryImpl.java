@@ -7,7 +7,8 @@ import java.util.stream.Collectors;
 
 public class InventoryImpl implements Inventory {
 
-	private Map<String, Title> titles = new ConcurrentHashMap<>();
+	// Using concurrent hash map for performance and thread safety when doing read, write and updates
+	private final Map<String, Title> titles = new ConcurrentHashMap<>();
 	
 	@Override
 	public List<Title> getLoanableTitles() {
