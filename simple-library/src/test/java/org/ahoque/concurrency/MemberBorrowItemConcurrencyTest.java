@@ -18,7 +18,7 @@ import com.anarsoft.vmlens.concurrent.junit.ConcurrentTestRunner;
 import com.anarsoft.vmlens.concurrent.junit.ThreadCount;
 
 @RunWith(ConcurrentTestRunner.class)
-public class MemberReturnConcurrencyTest {
+public class MemberBorrowItemConcurrencyTest {
 
 	private static final int THREAD_COUNT = 5;
 	private Member member;
