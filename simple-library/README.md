@@ -2,26 +2,24 @@
 
 === The Simple library Object Oriented Design ==
 The Simple library system consists of the following classes:
-- Library - the main facade to the library system
-- Inventory - the titles repository
-- Member - the user of the library who can borrow a copy of a title
-- Title - the title is the book, DVD, CD
-- TitleCopy - each title can have many title copies and they can be of different media formats.. e.g. book, dvd, cd
- 
+1. Library - the main facade to the library system
+2. Inventory - the titles repository
+3. Member - the user of the library who can borrow a copy of a title
+4. Title - the title is the book, DVD, CD
+5. TitleCopy - each title can have many title copies and they can be of different media formats.. e.g. book, dvd, cd
 
-== Development Process == 
-The system was developed using TDD with BDD acceptance criteria.  Each component of the system was developed incrementally and driven by the tests.
-
-== Thread Safety ==  
-The system is made thread safe by using ConcurrentHashMap for storing titles and members. The ConcurrentHashMap is used as it offers thread-safety and high throughput. The CopyOnWriteArray is used for tracking the state of the copies of titles and the copies borrowed by a member.
-
-The immutable loan class is used to track the loaning of a title copy and is managed using an AtomicReference.
-
-The system avoids using intrinsic locking and make use of compare-and-swap for synchronisation.
- 
- 
  == Extensibility ==
 The system allows extensibility through adding of new media types by extending the AbstractTitleItem. and implementing a media specific interface for specific functionalities.
+
+== Development Process == 
+The system was developed using TDD with BDD acceptance criteria.
+
+== Thread Safety and scaleability ==  
+The system is made thread safe and scalable by:
+1. using ConcurrentHashMap for storing titles and members. The ConcurrentHashMap is used as it offers thread-safety and high throughput as it uses CAS. 
+2. The CopyOnWriteArray is used for tracking the state of the copies of titles and the copies borrowed by a member.
+3. The immutable loan class is used to track the loaning of a title copy and is managed using an AtomicReference.
+ 
  
 
 == How To run ==

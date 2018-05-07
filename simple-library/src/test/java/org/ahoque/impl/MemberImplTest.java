@@ -45,7 +45,7 @@ public class MemberImplTest {
 	}
 
 	@Test
-	public void givenFourItems_whenItemsAreBorrowedAndTwoAreReturned_thenTheNumberOfBorrowedItemShouldBeTwo() {
+	public void givenFourItems_whenItemsAreBorrowedAndTwoAreReturned_thenTheNumberOfBorrowedItemShouldBeTwo_andAreTheExpectedItems() {
 		
 		List<TitleCopy> items = new ArrayList<>();
 		items.add(new DVDImpl("1234"));

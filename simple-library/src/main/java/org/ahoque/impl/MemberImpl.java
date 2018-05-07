@@ -2,6 +2,7 @@ package org.ahoque.impl;
 
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
+import java.util.concurrent.locks.ReentrantLock;
 
 import org.ahoque.interfaces.Loan;
 import org.ahoque.interfaces.Member;
@@ -12,6 +13,8 @@ public class MemberImpl implements Member {
 	private final String username;
 
 	private final List<TitleCopy> borrowedItems = new CopyOnWriteArrayList<>();
+
+	private final ReentrantLock borrowedItemsLock = new ReentrantLock();
 
 	public MemberImpl(final String username) {
 		this.username = username;
@@ -30,15 +33,30 @@ public class MemberImpl implements Member {
 	@Override
 	public void borrowItem(TitleCopy item) {
 
-		item.setLoan(new LoanImpl());
-		borrowedItems.add(item);
+		borrowedItemsLock.lock();
+
+		try {
+			if(!borrowedItems.contains(item)) {
+				item.setLoan(new LoanImpl());
+				borrowedItems.add(item);
+			}
+		}finally {
+			borrowedItemsLock.unlock();
+		}
+
 	}
 
 	@Override
 	public void borrowItem(TitleCopy item, Loan loan) {
 
-		item.setLoan(loan);
-		borrowedItems.add(item);
+		borrowedItemsLock.lock();
+
+		try {
+			item.setLoan(loan);
+			borrowedItems.add(item);
+		}finally {
+			borrowedItemsLock.unlock();
+		}
 	}
 
 	@Override
@@ -47,8 +65,13 @@ public class MemberImpl implements Member {
 		borrowedItems.stream()
 		.filter(c -> c.equals(item))
 		.forEach(c -> {
-			item.removeLoan();
-			borrowedItems.remove(item);
+			borrowedItemsLock.lock();
+			try {
+				item.removeLoan();
+				borrowedItems.remove(item);
+			}finally{
+				borrowedItemsLock.unlock();
+			}
 		});
 
 	}
