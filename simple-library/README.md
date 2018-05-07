@@ -20,7 +20,7 @@ The system is made thread safe and scalable by:
 2. The CopyOnWriteArray is used for tracking the state of the copies of titles and the copies borrowed by a member.
 3. The immutable loan class is used to track the loaning of a title copy and is managed using an AtomicReference.
 
-Thread Safety was developed and implemented using the third-party tool vmlens concurrent-junit framework.
+Thread Safety was developed and implemented using the third-party tool vmlens concurrent-junit framework (https://vmlens.com).
 
 == How To run ==
 The program uses the gradle build tool to build and test.  To the run the unit tests:
