@@ -12,9 +12,9 @@ The Simple library system consists of the following classes:
 The system allows extensibility through adding of new media types by extending the AbstractTitleItem. and implementing a media specific interface for specific functionalities.
 
 == Development Process == 
-The system was developed using TDD with BDD acceptance criteria.
+The system was developed using TDD with BDD acceptance criteria. Programming by interface.
 
-== Thread Safety and scaleability ==  
+== Thread Safety and scalability ==  
 The system is made thread safe and scalable by:
 1. using ConcurrentHashMap for storing titles and members. The ConcurrentHashMap is used as it offers thread-safety and high throughput as it uses CAS. 
 2. The CopyOnWriteArray is used for tracking the state of the copies of titles and the copies borrowed by a member.

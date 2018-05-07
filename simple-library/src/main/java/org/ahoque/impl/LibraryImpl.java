@@ -22,15 +22,35 @@ public class LibraryImpl implements Library {
 	}
 
 	/**
-	 *  Returns loanable title copies.
+	 *  Returns loanable items.
+	 *  
 	 *  @param name the name of the title
-	 *  @return loanable copies or empty list
+	 *  @return returns loanable copies else empty list
 	 */
 	@Override
 	public List<TitleCopy> getLoanableTitleCopiesByName(String name) {
 		return inventory.getLoanableTitles().stream()
 				.filter(title -> title.getTitle().equals(name))
 				.flatMap(title -> title.getLoanableItems().stream())
+				.collect(Collectors.toList());
+	}
+	
+
+	/**
+	 *  Returns loanable items.
+	 *  
+	 *  @param name the name of the title
+	 *  @param clazz the filter by type class
+	 *  
+	 *  @return returns loanable copies else empty list
+	 */
+	@Override
+	public <T> List<T> getLoanableTitleCopiesByNameAndType(String name, Class<T> clazz) {
+		return inventory.getLoanableTitles().stream()
+				.filter(title -> title.getTitle().equals(name))
+				.flatMap(title -> title.getLoanableItems().stream())
+				.filter(clazz::isInstance)
+				.map(copy -> (T)copy)
 				.collect(Collectors.toList());
 	}
 
@@ -58,16 +78,6 @@ public class LibraryImpl implements Library {
 	public List<TitleCopy> getOverdueItems() {
 		return inventory.getOverdueTitles().stream()
 				.flatMap(title -> title.getOverdueItems().stream())
-				.collect(Collectors.toList());
-	}
-
-	@Override
-	public <T> List<T> getLoanableTitleCopiesByNameAndType(String name, Class<T> clazz) {
-		return inventory.getLoanableTitles().stream()
-				.filter(title -> title.getTitle().equals(name))
-				.flatMap(title -> title.getLoanableItems().stream())
-				.filter(clazz::isInstance)
-				.map(copy -> (T)copy)
 				.collect(Collectors.toList());
 	}
 }
