@@ -1,6 +1,6 @@
 
 
-=== The Simple library Object Oriented Design ==
+== The Simple library Object Oriented Design ==
 The Simple library system consists of the following classes:
 1. Library - the main facade to the library system
 2. Inventory - the titles repository
@@ -9,18 +9,18 @@ The Simple library system consists of the following classes:
 5. TitleCopy - each title can have many title copies and they can be of different media formats.. e.g. book, dvd, cd
 
  == Extensibility ==
-The system allows extensibility through adding of new media types by extending the AbstractTitleItem. and implementing a media specific interface for specific functionalities.
+ 1. The system allows new title copy types to be introduced by letting sub-classing of AbstractTitleItem and implementing marker interface for the new type.
 
 == Development Process == 
-The system was developed using TDD with BDD acceptance criteria. Programming by interface.
+The system was developed using TDD with BDD acceptance criteria.
 
 == Thread Safety and scalability ==  
 The system is made thread safe and scalable by:
-1. using ConcurrentHashMap for storing titles and members. The ConcurrentHashMap is used as it offers thread-safety and high throughput as it uses CAS. 
+1. Using ConcurrentHashMap for storing titles and members. The ConcurrentHashMap is used as it offers thread-safety and high throughput as it uses CAS. 
 2. The CopyOnWriteArray is used for tracking the state of the copies of titles and the copies borrowed by a member.
 3. The immutable loan class is used to track the loaning of a title copy and is managed using an AtomicReference.
- 
- 
+
+Thread Safety was developed and implemented using the third-party tool vmlens concurrent-junit framework.
 
 == How To run ==
 The program uses the gradle build tool to build and test.  To the run the unit tests:
