@@ -4,7 +4,7 @@ import java.util.List;
 
 public interface Member {
 
-	public String getName();
+	public String getUsername();
 	
 	public List<TitleCopy> getBorrowedItems();
 	

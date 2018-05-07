@@ -13,7 +13,7 @@ public abstract class AbstractTitleItem implements TitleCopy {
 
 	private final String id;
 
-	private AtomicReference<Optional<Loan>> atomicRef = new AtomicReference<>(Optional.empty());
+	private AtomicReference<Optional<Loan>> atomicLoan = new AtomicReference<>(Optional.empty());
 
 	/**
 	 * Constructs a copy.
@@ -31,22 +31,22 @@ public abstract class AbstractTitleItem implements TitleCopy {
 
 	@Override
 	public boolean isLoanable() {
-		return !atomicRef.get().isPresent();
+		return !atomicLoan.get().isPresent();
 	}
 
 	@Override
 	public boolean isOverdue() {
-		return atomicRef.get().map(loan -> loan.isOverdue()).orElse(false);
+		return atomicLoan.get().map(loan -> loan.isOverdue()).orElse(false);
 	}
 
 	@Override
 	public void setLoan(Loan loan) {
-		this.atomicRef.getAndSet(Optional.of(loan));
+		this.atomicLoan.getAndSet(Optional.of(loan));
 	}
 
 	@Override
 	public void removeLoan() {
-		this.atomicRef.getAndSet(Optional.empty());
+		this.atomicLoan.getAndSet(Optional.empty());
 	}
 
 	@Override
@@ -76,6 +76,6 @@ public abstract class AbstractTitleItem implements TitleCopy {
 
 	@Override
 	public Optional<Loan> getLoan() {
-		return atomicRef.get();
+		return atomicLoan.get();
 	}
 }

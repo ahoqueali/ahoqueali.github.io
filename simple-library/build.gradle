@@ -10,6 +10,8 @@ repositories {
 } 
 
 dependencies {
+
+  compile 	'com.vmlens:concurrent-junit:1.0.2'
   testCompile 'junit:junit:4.12', 
   			  'org.mockito:mockito-all:1.9.5'
 }

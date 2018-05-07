@@ -18,7 +18,7 @@ public class MemberImpl implements Member {
 	}
 
 	@Override
-	public String getName() {
+	public String getUsername() {
 		return username;
 	}
 
@@ -47,8 +47,8 @@ public class MemberImpl implements Member {
 		borrowedItems.stream()
 		.filter(c -> c.equals(item))
 		.forEach(c -> {
-			borrowedItems.remove(item);
 			item.removeLoan();
+			borrowedItems.remove(item);
 		});
 
 	}

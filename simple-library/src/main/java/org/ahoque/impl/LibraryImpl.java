@@ -1,8 +1,8 @@
 package org.ahoque.impl;
 
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 import java.util.stream.Collectors;
 
 import org.ahoque.interfaces.Inventory;
@@ -13,18 +13,12 @@ import org.ahoque.interfaces.TitleCopy;
 
 public class LibraryImpl implements Library {
 
-	private Set<Member> members;
-	private Inventory inventory;
+	private final Map<String, Member> members = new ConcurrentHashMap<>();
+	private Inventory inventory = new InventoryImpl();
 	
-	public LibraryImpl() {
-		members = new HashSet<>();
-		inventory = new InventoryImpl();
-	}
-
 	@Override
 	public Member getMemberByUsername(String name) {
-		return members.stream()
-				.filter(user -> user.getName().equals(name)).collect(Collectors.toList()).get(0);
+			return members.get(name);
 	}
 
 	/**
@@ -47,7 +41,7 @@ public class LibraryImpl implements Library {
 
 	@Override
 	public void addMember(Member member) {
-		members.add(member);
+		members.put(member.getUsername(), member);
 	}
 
 	@Override

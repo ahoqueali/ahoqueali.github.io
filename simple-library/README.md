@@ -1,3 +1,38 @@
+
+
+=== The Simple library Object Oriented Design ==
+The Simple library system consists of the following classes:
+- Library - the main facade to the library system
+- Inventory - the titles repository
+- Member - the user of the library who can borrow a copy of a title
+- Title - the title is the book, DVD, CD
+- TitleCopy - each title can have many title copies and they can be of different media formats.. e.g. book, dvd, cd
+ 
+
+== Development Process == 
+The system was developed using TDD with BDD acceptance criteria.  Each component of the system was developed incrementally and driven by the tests.
+
+== Thread Safety ==  
+The system is made thread safe by using ConcurrentHashMap for storing titles and members. The ConcurrentHashMap is used as it offers thread-safety and high throughput. The CopyOnWriteArray is used for tracking the state of the copies of titles and the copies borrowed by a member.
+
+The immutable loan class is used to track the loaning of a title copy and is managed using an AtomicReference.
+
+The system avoids using intrinsic locking and make use of compare-and-swap for synchronisation.
+ 
+ 
+ == Extensibility ==
+The system allows extensibility through adding of new media types by extending the AbstractTitleItem. and implementing a media specific interface for specific functionalities.
+ 
+
+== How To run ==
+The program uses the gradle build tool to build and test.  To the run the unit tests:
+1. unzip the file simple-library.zip
+2. from the terminal, cd into the unzipped folder.
+3. execute the following command the terminal 
+
+	./gradlew clean build test  
+
+
 Below is a programming assignment. You are allowed to use third-party libraries and tools in order for developing, building, and testing purposes (please note exclusions below). Please include an explanation of your design, assumptions as well as detailed instructions on how to run the application along with your code (no more than one side of A4). We don't require a front-end or a command-line interactive interface. We are most interested in how you design your classes and solve the problem at hand.
 
 The code is assessed for:
