@@ -1,4 +1,5 @@
 theme: minimal-mistakes-jekyll
+minimal_mistakes_skin: "default" # "air", "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum" "sunrise"
 title: ahoque.org
 analytics:
   provider: "google-universal"
