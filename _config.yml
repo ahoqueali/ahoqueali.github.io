@@ -1,4 +1,4 @@
-theme: jekyll-theme-cayman
+theme: minimal-mistakes-jekyll
 title: ahoque.org
 analytics:
   provider: "google-universal"
