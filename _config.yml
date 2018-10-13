@@ -1,6 +1,2 @@
 theme: jekyll-theme-cayman
 title: ahoque.org
-analytics:
-  provider: "google-universal"
-  google:
- 	tracking_id: "UA-127414532-1"
