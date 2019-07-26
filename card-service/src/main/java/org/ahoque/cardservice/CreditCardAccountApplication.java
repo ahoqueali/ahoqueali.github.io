@@ -1,4 +1,4 @@
-package com.sapient.publicis.cardservice;
+package org.ahoque.cardservice;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

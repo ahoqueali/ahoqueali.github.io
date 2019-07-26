@@ -1,4 +1,4 @@
-package com.sapient.publicis.cardservice;
+package org.ahoque.cardservice;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

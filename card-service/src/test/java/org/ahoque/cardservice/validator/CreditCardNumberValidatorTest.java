@@ -1,4 +1,4 @@
-package com.sapient.publicis.cardservice.validator;
+package org.ahoque.cardservice.validator;
 
 import org.junit.Test;
 

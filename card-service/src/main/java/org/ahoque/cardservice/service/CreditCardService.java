@@ -1,13 +1,9 @@
-package com.sapient.publicis.cardservice.service;
+package org.ahoque.cardservice.service;
 
-import com.fasterxml.jackson.databind.JsonNode;
-import com.sapient.publicis.cardservice.domain.CreditCardAccount;
-import com.sapient.publicis.cardservice.repository.CreditCardRepository;
+import org.ahoque.cardservice.domain.CreditCardAccount;
+import org.ahoque.cardservice.repository.CreditCardRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
-
-import java.util.List;
 
 @Service
 public class CreditCardService {

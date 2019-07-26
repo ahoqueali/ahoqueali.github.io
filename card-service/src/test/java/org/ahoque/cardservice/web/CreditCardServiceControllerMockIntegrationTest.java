@@ -1,10 +1,10 @@
-package com.sapient.publicis.cardservice.web;
+package org.ahoque.cardservice.web;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.sapient.publicis.cardservice.domain.CreditCardAccount;
-import com.sapient.publicis.cardservice.service.CreditCardService;
-import com.sapient.publicis.cardservice.web.dto.CreditCardDetailsDto;
+import org.ahoque.cardservice.domain.CreditCardAccount;
+import org.ahoque.cardservice.service.CreditCardService;
+import org.ahoque.cardservice.web.dto.CreditCardDetailsDto;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;

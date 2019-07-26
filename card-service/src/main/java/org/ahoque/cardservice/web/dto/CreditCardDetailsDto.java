@@ -1,6 +1,6 @@
-package com.sapient.publicis.cardservice.web.dto;
+package org.ahoque.cardservice.web.dto;
 
-import com.sapient.publicis.cardservice.validator.CreditCardNumberConstraint;
+import org.ahoque.cardservice.validator.CreditCardNumberConstraint;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;

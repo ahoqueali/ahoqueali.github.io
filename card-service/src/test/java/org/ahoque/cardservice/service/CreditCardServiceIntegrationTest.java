@@ -1,7 +1,7 @@
-package com.sapient.publicis.cardservice.service;
+package org.ahoque.cardservice.service;
 
-import com.sapient.publicis.cardservice.domain.CreditCardAccount;
-import com.sapient.publicis.cardservice.repository.CreditCardRepository;
+import org.ahoque.cardservice.domain.CreditCardAccount;
+import org.ahoque.cardservice.repository.CreditCardRepository;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;

@@ -1,6 +1,6 @@
-package com.sapient.publicis.cardservice.repository;
+package org.ahoque.cardservice.repository;
 
-import com.sapient.publicis.cardservice.domain.CreditCardAccount;
+import org.ahoque.cardservice.domain.CreditCardAccount;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 

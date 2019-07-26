@@ -1,8 +1,6 @@
-package com.sapient.publicis.cardservice.domain;
+package org.ahoque.cardservice.domain;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 
