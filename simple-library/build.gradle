@@ -1,0 +1,23 @@
+apply plugin: 'java'
+apply plugin: 'eclipse'
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+
+repositories {
+    mavenCentral()
+} 
+
+dependencies {
+
+  compile 	'com.vmlens:concurrent-junit:1.0.2'
+  testCompile 'junit:junit:4.12', 
+  			  'org.mockito:mockito-all:1.9.5'
+}
+
+test {
+    testLogging {
+        events "passed", "skipped", "failed"
+    }
+}
