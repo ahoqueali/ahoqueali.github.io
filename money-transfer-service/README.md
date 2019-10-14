@@ -3,7 +3,7 @@
 Introduction
 ---
 
-The Money Transfer REST API service allows users to
+The Money Transfer REST API service allows users to:
 * create accounts,
 * add funds to an account,
 * query account details,
@@ -25,3 +25,7 @@ Health Check
 ---
 
 Health url `http://localhost:8081/healthcheck`
+
+Code
+---
+Visit the following link to get the [source](https://github.com/ahoqueali/ahoqueali.github.io/tree/master/money-transfer-service)
