@@ -1,0 +1,13 @@
+{
+  "fromAccount":{
+    "name":"12345678",
+    "accountNumber": "12345678",
+    "sortcode": "404050"
+  },
+  "toAccount":{
+    "name": "Ms S Hoque",
+    "accountNumber": "12345679",
+    "sortcode": "404050"
+  },
+  "amount":"1000.00"
+}
