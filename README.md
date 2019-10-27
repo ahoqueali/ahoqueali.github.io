@@ -4,5 +4,3 @@ My projects...
 * [Card Service](https://ahoque.org/card-service)
 * [Simple Library](https://ahoque.org/simple-library)
 * [Sylhet Directory](https://github.com/ahoqueali/sylhetdirectory.github.io/)
-
-My [linkedin profile](https://www.linkedin.com/in/ahoqueali/) 
