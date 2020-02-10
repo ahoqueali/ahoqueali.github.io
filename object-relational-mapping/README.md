@@ -2,17 +2,21 @@
 
 
 ## Single table inheritance
-Map all fields in the object graph to [one table](https://martinfowler.com/eaaCatalog/singleTableInheritance.html)
+Map all the fields in the object graph to a single table.
  
-![alt text](https://martinfowler.com/eaaCatalog/singleInheritanceTableSketch.gif "Single table inheritance")
+![alt text](https://ahoque.org/object-relational-mapping/single-table-inheritance.png "Single table inheritance")
 
 ## Class table inheritance
-Map each class fields to [a table](https://martinfowler.com/eaaCatalog/classTableInheritance.html)
+For each class create a table and map the fields.
 
 ![alt text](https://martinfowler.com/eaaCatalog/classInheritanceTableSketch.gif "Class table inheritance")
 
 
 ## Concrete table inheritance
-For each object map all the fields plus the inherited fields to [a table](https://martinfowler.com/eaaCatalog/concreteTableInheritance.html)
+For each concrete class, map all the fields plus the inherited fields into the table.
 
 ![alt text](https://martinfowler.com/eaaCatalog/leafInheritanceTableSketch.gif "Concrete table inheritance")
+
+
+## References
+* Single, Class and Concrete table inheritance [Martin Fowler](https://martinfowler.com/eaaCatalog/index.html)
