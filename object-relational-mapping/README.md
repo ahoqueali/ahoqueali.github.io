@@ -9,13 +9,13 @@ Map all the fields in the object graph to a single table.
 ## Class table inheritance
 For each class create a table and map the fields.
 
-![alt text](https://martinfowler.com/eaaCatalog/classInheritanceTableSketch.gif "Class table inheritance")
+![alt text]((https://ahoque.org/object-relational-mapping/class-table-inheritance.png "Class table inheritance")
 
 
 ## Concrete table inheritance
 For each concrete class, map all the fields plus the inherited fields into the table.
 
-![alt text](https://martinfowler.com/eaaCatalog/leafInheritanceTableSketch.gif "Concrete table inheritance")
+![alt text]((https://ahoque.org/object-relational-mapping/concrete-class-table-inheritance.png "Concrete table inheritance")
 
 
 ## References
