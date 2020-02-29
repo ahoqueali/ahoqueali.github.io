@@ -1,8 +1,8 @@
-# How to map object inheritance to relational tables
+# How to map class inheritance to relational tables
 
 
 ## Single table inheritance
-Map all the fields in the object graph to a single table.
+Map all the fields in the graph to a single table.
  
 ![alt text](https://ahoque.org/object-relational-mapping/single-table-inheritance.png "Single table inheritance")
 
