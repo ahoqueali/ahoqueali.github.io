@@ -1,0 +1,29 @@
+openapi: 3.0.1
+info:
+  title: OpenAPI definition
+  version: v0
+servers:
+- url: http://localhost:8080
+  description: Generated server url
+paths:
+  /hello:
+    get:
+      tags:
+      - demo-controller
+      operationId: hello
+      parameters:
+      - name: name
+        in: query
+        required: true
+        schema:
+          maxLength: 20
+          minLength: 5
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: string
+components: {}
