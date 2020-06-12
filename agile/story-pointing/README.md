@@ -1,4 +1,4 @@
-# Story Point
+# Story Pointing
 
 ## Why story point
 
