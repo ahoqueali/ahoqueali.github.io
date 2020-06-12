@@ -16,4 +16,4 @@ The story pointing of a story should be done relative to a base story that has b
 
 ## References
 
- 1. List item
+ 1. [Esitmation](http://www.agilenutshell.com/episodes/3-estimation)
