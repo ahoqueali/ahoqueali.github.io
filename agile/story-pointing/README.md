@@ -8,7 +8,7 @@ Story points are used to forecast the number of backlog items that can be delive
 
 The story pointing of a story in a sprint backlog should be done relative to an already story pointed datum story
 
-##  How to make storying point better
+##  How to make storying pointing better
 
  1. Use grooming sessions to filter out not so well defined stories
  2. Use sprint retrospective to address bottle necks so that better velocity can be achieved in future sprints
