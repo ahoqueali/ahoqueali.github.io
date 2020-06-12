@@ -6,7 +6,7 @@ Story points are used to forecast the number of backlog items that can be delive
 
 ##  How to story point
 
-The story pointing of a story should be done relative to a base story that has been story pointed by the team
+The story pointing of a story in a sprint backlog should be done relative to a story pointed base story from the same backlog
 
 ##  How to make storying point better
 
