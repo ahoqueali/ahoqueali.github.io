@@ -11,7 +11,7 @@ The story pointing of a story should be done relative to a base story that has b
 ##  How to make storying point better
 
  1. Use grooming sessions to filter out not so well defined stories
- 2. Use sprint retrospective to address bottle necks so that better velocities can be achieved in future sprints
+ 2. Use sprint retrospective to address bottle necks so that better velocity can be achieved in future sprints
 
 
 ## References
