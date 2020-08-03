@@ -7,8 +7,8 @@ Execute the following commands in terminal:
 * `brew cask install adoptopenjdk14`
 
 Add the following files to `~/.bash_profile`
-* Add `export JAVA_HOME=$(/usr/libexec/java_home -v14)`
-* Add `PATH=$PATH:JAVA_HOME/bin`
+* `export JAVA_HOME=$(/usr/libexec/java_home -v14)`
+* `PATH=$PATH:JAVA_HOME/bin`
 
 
 ## Reference
