@@ -17,13 +17,14 @@ Finally, update the changes in the current terminal by executing:
 # Configure MicroSoft Visual Studio
 Edit Settings.json file with the following line:
 
-`
+```JSON
 "java.configuration.runtimes": [
         {"name":"JavaSE-14","path":"/Library/Java/JavaVirtualMachines/adoptopenjdk-14.jdk/Contents/Home", "default": true}]
-`
-So complete file will look something like this..
+```
 
-`
+So the complete file will look something like this..
+
+```JSON
 {
     "editor.suggestSelection": "first",
     "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
@@ -34,7 +35,7 @@ So complete file will look something like this..
         {"name":"JavaSE-14","path":"/Library/Java/JavaVirtualMachines/adoptopenjdk-14.jdk/Contents/Home", "default": true}]
 }
 
-`
+```
 
 ## Reference
 * [How to install Java on Mac OS](https://mkyong.com/java/how-to-install-java-on-mac-osx/)
