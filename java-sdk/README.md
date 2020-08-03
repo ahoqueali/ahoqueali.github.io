@@ -12,6 +12,7 @@ Add the following files to `~/.bash_profile`
 
 Finally, update the changes in the current terminal by executing:
 * `source ~/.bash_profile`
+* `java -version`
 
 ## Reference
 * [How to install Java on Mac OS](https://mkyong.com/java/how-to-install-java-on-mac-osx/)
