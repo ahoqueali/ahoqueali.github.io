@@ -8,8 +8,10 @@ Execute the following commands in terminal:
 
 Add the following files to `~/.bash_profile`
 * `export JAVA_HOME=$(/usr/libexec/java_home -v14)`
-* `PATH=$PATH:JAVA_HOME/bin`
+* `export PATH=$PATH:JAVA_HOME/bin`
 
+Finally, update the changes in the current terminal by executing:
+* `source ~/.bash_profile`
 
 ## Reference
 * [How to install Java on Mac OS](https://mkyong.com/java/how-to-install-java-on-mac-osx/)
