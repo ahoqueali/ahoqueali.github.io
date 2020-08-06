@@ -7,3 +7,4 @@ My how to guide..
 3. [Swagger UI and Swagger Request Validator demo](https://ahoque.org/swagger-demo/)
 4. [Agile - Story Pointing](https://ahoque.org/agile/story-pointing/)
 5. [How to install Java on Mac OS & MS Visual Code](https://ahoque.org/java-sdk/)
+6. [Java Funtional Programming](https://ahoque.org/java-funtional-programming/)
