@@ -14,6 +14,9 @@ Finally, update the changes in the current terminal by executing:
 * `source ~/.bash_profile`
 * `java -version`
 
+# Utils
+* List installed JDKs `/usr/libexec/java_home -V`
+
 # Configure MicroSoft Visual Studio
 Edit Settings.json file with the following line:
 
