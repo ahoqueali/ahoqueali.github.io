@@ -7,3 +7,6 @@
 
 # Structural Patterns
 # Behavioural Patterns
+
+#References
+* [OO Design](https://www.oodesign.com/)
