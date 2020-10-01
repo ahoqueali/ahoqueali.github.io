@@ -1,3 +1,9 @@
 # Creational Patterns
+* Factory
+* Abstract Factory
+* Singleton
+* Flyweight
+* Builder
+
 # Structural Patterns
 # Behavioural Patterns
