@@ -8,3 +8,4 @@ My how to guide..
 4. [Agile - Story Pointing](https://ahoque.org/agile/story-pointing/)
 5. [How to install Java on Mac OS & MS Visual Code](https://ahoque.org/java-sdk/)
 6. [Java Functional Programming](https://ahoque.org/java-functional-programming/)
+7. [Design Patterns](https://ahoque.org/design-patterns/)
