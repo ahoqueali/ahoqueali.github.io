@@ -1,8 +1,6 @@
 
 My how to guide..  
   
-* [Microservices: objectives](https://ahoque.org/microservices/objectives)
-* [Microservices: Saga pattern](https://ahoque.org/microservices/saga-pattern)
 * [How to map objects to relational tables](https://ahoque.org/object-relational-mapping/)
 * [Representational State Transfer (REST) API](https://ahoque.org/rest-api/)
 * [Swagger UI and Swagger Request Validator demo](https://ahoque.org/swagger-demo/)
