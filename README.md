@@ -9,5 +9,4 @@ My how to guide..
 5. [How to install Java on Mac OS & MS Visual Code](https://ahoque.org/java-sdk/)
 6. [Java Functional Programming](https://ahoque.org/java-functional-programming/)
 7. [Design Patterns](https://ahoque.org/design-patterns/)
-8. [How to map dtos](https://ahoque.org/mapping-dtos)
 9. [Microservices: Saga pattern](https://ahoque.org/microservices/saga-pattern)
