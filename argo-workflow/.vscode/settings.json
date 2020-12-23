@@ -1,0 +1,6 @@
+{
+    "files.autoSave": "afterDelay",
+    "yaml.schemas": {
+        "https://raw.githubusercontent.com/argoproj/argo/master/api/jsonschema/schema.json":"examples/**/*.yaml"
+    }
+}

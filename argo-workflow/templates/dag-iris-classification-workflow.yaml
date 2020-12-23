@@ -1,0 +1,179 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Workflow
+metadata:
+  generateName: dag-iris-classification-
+spec:
+  entrypoint: iris-classification
+  templates:
+  - name: import-data
+    script:
+      image: ecoron/python36-sklearn
+      command: [python]
+      source: |
+        from  sklearn import  datasets
+        iris = datasets.load_iris()
+        x = iris.data
+        y = iris.target
+
+        from sklearn.model_selection import train_test_split
+        x_train, x_test, y_train, y_test = train_test_split(x, y, test_size = .5)
+
+        import numpy as np
+        file_x_train_data = open("/tmp/x_train_data", "wb")
+        np.save(file_x_train_data, x_train)
+
+        file_x_test_data = open("/tmp/x_test_data", "wb")
+        np.save(file_x_test_data, x_test)
+
+        file_y_train_data = open("/tmp/y_train_data", "wb")
+        np.save(file_y_train_data, y_train)
+
+        file_y_test_data = open("/tmp/y_test_data", "wb")
+        np.save(file_y_test_data, y_test)
+
+    outputs:
+      artifacts:
+      - name: x-train-data
+        path: /tmp/x_train_data
+        globalName: x-train-data
+      - name: y-train-data
+        path: /tmp/y_train_data
+        globalName: y-train-data
+      - name: x-test-data
+        path: /tmp/x_test_data
+        globalName: x-test-data
+      - name: y-test-data
+        path: /tmp/y_test_data
+        globalName: y-test-data
+  
+  - name: create-model
+    script:
+      image: ecoron/python36-sklearn
+      command: [python]
+      source: |
+        from sklearn import tree
+        model = tree.DecisionTreeClassifier()
+
+        import pickle
+        model_filename = "/tmp/model"
+        pickle.dump(model, open(model_filename, 'wb'))
+
+    outputs:
+      artifacts:
+      - name: model
+        path: /tmp/model
+        globalName: model
+  
+  - name: train-model
+    script:
+      image: ecoron/python36-sklearn
+      command: [python]
+      source: |
+        import json
+        import numpy as np
+        file_x_train_data = open("/tmp/x_train_data", "rb")
+        x_train = np.load(file_x_train_data)
+
+        file_y_train_data = open("/tmp/y_train_data", "rb")
+        y_train = np.load(file_y_train_data)
+
+        from sklearn import tree
+        import pickle
+        filename = "/tmp/model"
+        classifier = pickle.load(open(filename, 'rb'))
+        classifier.fit(x_train, y_train)
+        trained_model_filename = "/tmp/trained_model"
+        pickle.dump(classifier, open(trained_model_filename, 'wb'))
+    inputs:
+      artifacts:
+      - name: x-train-data
+        path: /tmp/x_train_data
+      - name: y-train-data
+        path: /tmp/y_train_data
+      - name: model
+        path: /tmp/model
+    outputs:
+      artifacts:
+      - name: trained-model
+        path: /tmp/trained_model
+
+  - name: predict
+    script:
+      image: ecoron/python36-sklearn
+      command: [python]
+      source: |
+        import numpy as np
+        file_x_test_data = open("/tmp/x_test_data", "rb")
+        x_test = np.load(file_x_test_data)
+
+        file_y_test_data = open("/tmp/y_test_data", "rb")
+        y_test = np.load(file_y_test_data)
+
+        from sklearn import tree
+        import pickle
+        filename = "/tmp/trained-model"
+        classifier = pickle.load(open(filename, 'rb'))
+        predictions=classifier.predict(x_test)
+        
+        from sklearn.metrics import accuracy_score
+        f = open("/tmp/accuracy_score", "w")
+        f.write(str(accuracy_score(y_test, predictions)))
+        f.close()
+    inputs:
+      artifacts:
+      - name: x-test-data
+        path: /tmp/x_test_data
+      - name: y-test-data
+        path: /tmp/y_test_data
+      - name: trained-model
+        path: /tmp/trained-model
+    outputs:
+      parameters:
+      - name: accuracy_score
+        valueFrom:
+          path: /tmp/accuracy_score
+        globalName: accuracy_score
+  
+  - name: display
+    inputs:
+      parameters:
+      - name: result
+    container:
+      image: docker/whalesay:latest
+      command: [cowsay]
+      args: ["{{inputs.parameters.result}}"]
+
+  - name: iris-classification
+    dag:
+      tasks:
+      - name: import-and-split-iris-test-data
+        template: import-data
+      - name: create-classifier-model
+        template: create-model
+      - name: train-iris-classifier
+        dependencies: [import-and-split-iris-test-data, create-classifier-model]
+        template: train-model
+        arguments:
+          artifacts: 
+          - name: x-train-data 
+            from: "{{tasks.import-and-split-iris-test-data.outputs.artifacts.x-train-data}}"
+          - name: y-train-data 
+            from: "{{tasks.import-and-split-iris-test-data.outputs.artifacts.y-train-data}}"
+          - name: model 
+            from: "{{tasks.create-classifier-model.outputs.artifacts.model}}"
+      - name: score-test-data
+        dependencies: [train-iris-classifier]
+        template: predict
+        arguments:
+          artifacts: 
+          - name: x-test-data
+            from: "{{tasks.import-and-split-iris-test-data.outputs.artifacts.x-test-data}}"
+          - name: y-test-data 
+            from: "{{tasks.import-and-split-iris-test-data.outputs.artifacts.y-test-data}}"
+          - name: trained-model
+            from: "{{tasks.train-iris-classifier.outputs.artifacts.trained-model}}"
+      - name: display-accuracy-of-prediction
+        dependencies: [score-test-data]
+        template: display
+        arguments:
+          parameters: [{name: result, value: '{{tasks.score-test-data.outputs.parameters.accuracy_score}}'}]
