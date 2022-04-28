@@ -6,3 +6,5 @@ url: https://ahoque.org
 baseurl: /ahoqueali.github.io/ 
 header_pages:
   - contact.md
+minima:
+  skin: dark
