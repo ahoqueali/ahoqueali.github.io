@@ -15,7 +15,7 @@
 
 7. ``` kubectl get svc istio-ingressgateway -n istio-system ```
 
-8. ``` minikube tunnel ```
+8.  Run in another terminal ``` minikube tunnel ```
 
 9. ``` curl localhost/hello ```
     
