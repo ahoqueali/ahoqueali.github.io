@@ -18,7 +18,7 @@
 8. ```bash curl localhost/hello ```
     
 References:
-1. https://istio.io/latest/docs/setup/getting-started/
-2. https://medium.com/@jobinesh/setting-up-istio-on-minikube-for-running-bookinfo-demo-application-af25dab2a732
-3. https://medium.com/codex/setup-istio-ingress-traffic-management-on-minikube-725c5e6d767a
+1. [Isto getting started](https://istio.io/latest/docs/setup/getting-started/)
+2. [Setting up istio on minikube](https://medium.com/@jobinesh/setting-up-istio-on-minikube-for-running-bookinfo-demo-application-af25dab2a732)
+3. [Setup isto ingress](https://medium.com/codex/setup-istio-ingress-traffic-management-on-minikube-725c5e6d767a)
 
