@@ -5,7 +5,7 @@
     
 2. ``` istioctl install --set profile=demo -y ```
 
-3. ``  kubectl label namespace default istio-injection=enabled ```
+3. ``` kubectl label namespace default istio-injection=enabled ```
 
 4. ``` kubectl apply -f samples/helloworld/helloworld.yaml ```
 
