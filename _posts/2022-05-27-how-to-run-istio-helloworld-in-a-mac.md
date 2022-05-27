@@ -1,21 +1,21 @@
-1.  ```bash minikube start --memory=7851 --cpus=4 --kubernetes-version=v1.23.3 \
+1.  ``` minikube start --memory=7851 --cpus=4 --kubernetes-version=v1.23.3 \
     --extra-config=controller-manager.cluster-signing-cert-file="/var/lib/minikube/certs/ca.crt" \
     --extra-config=controller-manager.cluster-signing-key-file="/var/lib/minikube/certs/ca.key" ```
     
     
-2. ```bash istioctl install --set profile=demo -y ```
+2. ``` istioctl install --set profile=demo -y ```
     
-3. ```bash kubectl apply -f samples/helloworld/helloworld.yaml ```
+3. ``` kubectl apply -f samples/helloworld/helloworld.yaml ```
 
-4. ```bash kubectl apply -f samples/helloworld/helloworld-gateway.yaml ```
+4. ``` kubectl apply -f samples/helloworld/helloworld-gateway.yaml ```
 
-5. ```bash kubectl get pods ```
+5. ``` kubectl get pods ```
 
-6. ```bash kubectl get svc istio-ingressgateway -n istio-system ```
+6. ``` kubectl get svc istio-ingressgateway -n istio-system ```
 
-7. ```bash minikube tunnel ```
+7. ``` minikube tunnel ```
 
-8. ```bash curl localhost/hello ```
+8. ``` curl localhost/hello ```
     
 References:
 1. [Isto getting started](https://istio.io/latest/docs/setup/getting-started/)
