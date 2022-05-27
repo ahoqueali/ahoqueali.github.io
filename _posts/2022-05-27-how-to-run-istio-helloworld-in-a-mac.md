@@ -4,18 +4,20 @@
     
     
 2. ``` istioctl install --set profile=demo -y ```
-    
-3. ``` kubectl apply -f samples/helloworld/helloworld.yaml ```
 
-4. ``` kubectl apply -f samples/helloworld/helloworld-gateway.yaml ```
+3. ``  kubectl label namespace default istio-injection=enabled ```
 
-5. ``` kubectl get pods ```
+4. ``` kubectl apply -f samples/helloworld/helloworld.yaml ```
 
-6. ``` kubectl get svc istio-ingressgateway -n istio-system ```
+5. ``` kubectl apply -f samples/helloworld/helloworld-gateway.yaml ```
 
-7. ``` minikube tunnel ```
+6. ``` kubectl get pods ```
 
-8. ``` curl localhost/hello ```
+7. ``` kubectl get svc istio-ingressgateway -n istio-system ```
+
+8. ``` minikube tunnel ```
+
+9. ``` curl localhost/hello ```
     
 References:
 1. [Isto getting started](https://istio.io/latest/docs/setup/getting-started/)
