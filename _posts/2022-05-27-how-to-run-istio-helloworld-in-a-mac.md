@@ -1,5 +1,6 @@
-1.  ``` 
-2.  minikube start --memory=7851 --cpus=4 --kubernetes-version=v1.23.3 \
+1.  start minikube
+``` 
+    minikube start --memory=7851 --cpus=4 --kubernetes-version=v1.23.3 \
     --extra-config=controller-manager.cluster-signing-cert-file="/var/lib/minikube/certs/ca.crt" \
     --extra-config=controller-manager.cluster-signing-key-file="/var/lib/minikube/certs/ca.key" 
     
