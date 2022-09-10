@@ -8,7 +8,7 @@ Replace the id with a placeholder like current as used by [Confluence](https://d
 
 E.g. /customers/current/addresses
 
-Here is a example [swagger spec](https://petstore.swagger.io/?url=https://raw.githubusercontent.com/ahoqueali/ahoqueali.github.io/master/rest/address-openapi.yaml#/Address/getAddress)
+Here is an example [swagger spec](https://petstore.swagger.io/?url=https://raw.githubusercontent.com/ahoqueali/ahoqueali.github.io/master/rest/address-openapi.yaml#/Address/getAddress)
 
 # References
 1. [Designing URI for current logged in user in REST application](https://stackoverflow.com/questions/36520372/designing-uri-for-current-logged-in-user-in-rest-applications)
