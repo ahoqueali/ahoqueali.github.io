@@ -1,0 +1,66 @@
+openapi: 3.0.2
+info:
+  title: Address - OpenAPI 3.0
+  description: Return Address based on the OpenAPI 3.0 specification.
+  version: 1.0.5
+servers:
+  - url: /api/v1.0
+tags:
+  - name: Address
+    description: Address
+paths:
+  /customers/current/addresses:
+    get:
+      tags:
+        - Address
+      summary: get customer address
+      description: Returns customer address
+      operationId: getAddress
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ReadAddresses'
+
+components:
+  schemas:
+
+    ReadAddresses:
+      type: object
+      properties:
+        Data:
+          type: object
+          properties:
+            Addresses:
+              type: array
+              items:
+                $ref: '#/components/schemas/Address'
+
+    Uuid:
+      type: string
+      format: uuid
+      minLength: 36
+      maxLength: 36
+    
+    Address:
+      type: object
+      required:
+        - AddressType
+      properties:
+        AddressId:
+          $ref: '#/components/schemas/Uuid'
+        Line1:
+          type: string
+        Line2:
+          type: string
+        Line3:
+          type: string
+        Line4:
+          type: string
+        AddressType:
+          type: string
+          enum:
+            - HOME
+            - WORK
