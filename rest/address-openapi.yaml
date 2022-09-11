@@ -1,7 +1,7 @@
 openapi: 3.0.2
 info:
   title: Address - OpenAPI 3.0
-  description: Return Address based on the OpenAPI 3.0 specification.
+  description: Return Address API based on the OpenAPI 3.0 specification.
   version: 1.0.5
 servers:
   - url: /api/v1.0
@@ -13,8 +13,8 @@ paths:
     get:
       tags:
         - Address
-      summary: get customer address
-      description: Returns customer address
+      summary: get address
+      description: Returns address
       operationId: getAddress
       responses:
         '200':
@@ -22,12 +22,12 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ReadAddresses'
+                $ref: '#/components/schemas/ReadAddress'
 
 components:
   schemas:
 
-    ReadAddresses:
+    ReadAddress:
       type: object
       properties:
         Data:
