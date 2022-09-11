@@ -12,3 +12,4 @@ Here is an example [swagger spec](https://petstore.swagger.io/?url=https://raw.g
 
 # References
 1. [Designing URI for current logged in user in REST application](https://stackoverflow.com/questions/36520372/designing-uri-for-current-logged-in-user-in-rest-applications)
+2. [Open Banking API](https://openbankinguk.github.io/read-write-api-site3/v3.1.10/profiles/read-write-data-api-profile.html)
