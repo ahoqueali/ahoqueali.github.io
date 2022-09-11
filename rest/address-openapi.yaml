@@ -33,7 +33,7 @@ components:
         Data:
           type: object
           properties:
-            Addresses:
+            Address:
               type: array
               items:
                 $ref: '#/components/schemas/Address'
