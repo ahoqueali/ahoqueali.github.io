@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "How oo replace resource identifier from REST resource URL"
+title: "How to replace resource identifier from REST resource URL"
 date: 2022-09-10 00:00:00 -0000
 categories: BLOG
 ---
