@@ -1,3 +1,10 @@
+---
+layout: post
+title: "How oo replace resource identifier from REST resource URL"
+date: 2022-09-10 00:00:00 -0000
+categories: BLOG
+---
+
 # Problem Statement
 For most banking apps having the account id in the REST resource url is not allowed.
 
