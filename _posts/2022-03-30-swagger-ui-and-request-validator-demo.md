@@ -1,3 +1,9 @@
+---
+layout: post
+title: "Swagger UI and Request Validator"
+date: 2022-04-26 16:10:00 -0000
+categories: BLOG
+---
 # Swagger UI Demo
 
 1. Git clone [project](https://github.com/ahoqueali/ahoqueali.github.io/tree/master/swagger-demo) `git clone https://github.com/ahoqueali/ahoqueali.github.io`
@@ -10,7 +16,7 @@ The URLs below allow access to the Swagger Specs
 6. JSON Swagger Spec [http://localhost:8080/v3/api-docs/](http://localhost:8080/v3/api-docs/)
 7. YAML Swagger Spec [http://localhost:8080/v3/api-docs.yaml](http://localhost:8080/v3/api-docs.yaml)
 
-![alt text](../swagger-demo/swagger-ui-demo.png "Swagger UI Demo")
+![alt text](https://github.com/ahoqueali/ahoqueali.github.io/blob/master/swagger-demo/swagger-ui-demo.png "Swagger UI Demo")
 
 
 # Swagger Request Validator Demo
@@ -18,7 +24,7 @@ The URLs below allow access to the Swagger Specs
 7. Whilst the  demo app is running, open a terminal and execute the following curl command `curl http://localhost:8080/hello\?name\=Ross`
 8. The message below will be shown.. The error is produced by the Swagger Request Validator after intercepting the request as the name cannot be less than 5 chars
 
-![alt text](../swagger-demo/swagger-request-validator.png "Swagger Request Validator Demo")
+![alt text](https://github.com/ahoqueali/ahoqueali.github.io/tree/master/swagger-demo/swagger-request-validator.png "Swagger Request Validator Demo")
 
 See [source](https://github.com/ahoqueali/ahoqueali.github.io/tree/master/swagger-demo) for implementation details.
 
