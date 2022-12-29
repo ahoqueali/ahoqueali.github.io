@@ -19,5 +19,5 @@
 
 
 # Reference
-[REST RMM](https://martinfowler.com/articles/richardsonMaturityModel.html)
-[REST API Tutorial - Resource naming](https://restfulapi.net/resource-naming/)
+* [REST RMM](https://martinfowler.com/articles/richardsonMaturityModel.html)
+* [REST API Tutorial - Resource naming](https://restfulapi.net/resource-naming/)
