@@ -4,7 +4,7 @@ google_analytics: G-28209RVRZB
 domain: ahoque.org
 url: https://ahoque.org
 baseurl: /ahoqueali.github.io/ 
-header_pages:
-  - contact.md
+#header_pages:
+#  - contact.md
 minima:
   skin: dark
