@@ -1,4 +1,4 @@
-theme: minima
+theme: jekyll-theme-architect
 title: ahoque.org
 google_analytics: G-28209RVRZB
 domain: ahoque.org
@@ -6,5 +6,5 @@ url: https://ahoque.org
 baseurl: /ahoqueali.github.io/ 
 header_pages:
 #  - contact.md
-minima:
-  skin: dark
+#minima:
+#  skin: dark
