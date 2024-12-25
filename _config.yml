@@ -3,6 +3,7 @@ plugins:
   - jekyll-remote-theme
 
 title: ahoque.org
+description: Personal Blog Site
 domain: ahoque.org
 url: https://ahoque.org
 baseurl: /ahoqueali.github.io/ 
