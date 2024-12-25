@@ -1,10 +1,12 @@
-theme: minima
+remote_theme: pages-themes/architect@v0.2.0
+plugins:
+  - jekyll-remote-theme # add this line to the plugins list if you already have one
+
+#theme: jekyll-theme-hacker
 title: ahoque.org
-google_analytics: G-28209RVRZB
+#description: my site
 domain: ahoque.org
 url: https://ahoque.org
 baseurl: /ahoqueali.github.io/ 
-header_pages:
+#header_pages:
 #  - contact.md
-#minima:
-#  skin: dark
