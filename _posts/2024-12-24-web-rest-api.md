@@ -1,8 +1,8 @@
 ---
 layout: post
-title:  "Welcome to Jekyll!"
-date:   2014-04-06 15:40:56
-categories: jekyll update
+title:  "Web REST API"
+date:   2024-12-24 15:40:56
+categories: BLOG
 ---
 
 You'll find this post in your `_posts` directory - edit this post and re-build (or run with the `-w` switch) to see your changes!

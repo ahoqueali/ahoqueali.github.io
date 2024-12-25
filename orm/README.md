@@ -4,18 +4,18 @@
 ## Single table inheritance
 Map all the fields in the graph to a single table.
  
-![alt text](https://ahoque.org/object-relational-mapping/single-table-inheritance.png "Single table inheritance")
+![alt text](https://ahoque.org/orm/single-table-inheritance.png "Single table inheritance")
 
 ## Class table inheritance
 For each class create a table and map the fields.
 
-![alt text](https://ahoque.org/object-relational-mapping/class-table-inheritance.png "Class table inheritance")
+![alt text](https://ahoque.org/orm/class-table-inheritance.png "Class table inheritance")
 
 
 ## Concrete table inheritance
 For each concrete class, map all the fields plus the inherited fields into the table.
 
-![alt text](https://ahoque.org/object-relational-mapping/concrete-class-table-inheritance.png "Concrete table inheritance")
+![alt text](https://ahoque.org/orm/concrete-class-table-inheritance.png "Concrete table inheritance")
 
 
 ## References
