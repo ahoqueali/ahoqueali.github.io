@@ -1,3 +1,11 @@
+---
+layout: post
+title: "Howe REST Allows Building of Scalable Web Applications"
+date: 2024-12-30 18:56:00 -0000
+author: 'A. Hoque Ali'
+categories: BLOG
+---
+
 # How REST Allows Building of Scalable Web Applications
 
 Author: A. Hoque Ali
