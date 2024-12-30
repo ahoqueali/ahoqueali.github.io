@@ -384,34 +384,40 @@ The principle of **manipulation of resources through representations** is fundam
 **1\. Updating a User Profile**
 
 * **Request (Representation of the resource being updated):**  
-  PUT /users/123 HTTP/1.1  
+  ```json 
+    PUT /users/123 HTTP/1.1  
+    Content-Type: application/json  
+    {  
+      "name": "John Doe",  
+      "email": "john.doe@example.com"  
+    }
+  ```
+    
+    * This representation replaces the existing user profile for users/123.  
+* **Response:**
+  ```json
+  HTTP/1.1 200 OK  
   Content-Type: application/json  
   {  
+    "id": 123,  
     "name": "John Doe",  
     "email": "john.doe@example.com"  
-  }  
-  * This representation replaces the existing user profile for users/123.  
-* **Response:**
-
-HTTP/1.1 200 OK  
-Content-Type: application/json  
-{  
-  "id": 123,  
-  "name": "John Doe",  
-  "email": "john.doe@example.com"  
-}
-
+  }
+  ```
 **2\. Partially Updating the Resource**
 
-* **Request:**  
+* **Request:** 
+  ```json
   PATCH /users/123 HTTP/1.1  
   Content-Type: application/json  
   {  
     "email": "newemail@example.com"  
   }  
+  ```
   * Only the email field is updated.  
 * **Response:**  
-    
+
+  ```json
   HTTP/1.1 200 OK  
   Content-Type: application/json  
   {  
@@ -419,7 +425,7 @@ Content-Type: application/json
     "name": "John Doe",  
     "email": "newemail@example.com"  
   }
-
+  ```
 **Key Benefits of Manipulation Through Representation:**
 
 1. **Efficient Data Transfer**: Only the required fields are sent, reducing payload size and saving bandwidth.  
@@ -488,13 +494,15 @@ In summary, **manipulation of resources through representations** makes REST eff
 
 **Example of a Self-Descriptive Message:**
 
-**Request:**  
+**Request:** 
+```json
 GET /users/123 HTTP/1.1  
 Host: api.example.com  
 Accept: application/json  
 Authorization: Bearer \<token\>
-
-**Response:**  
+```
+**Response:**
+```json
 HTTP/1.1 200 OK  
 Content-Type: application/json  
 Cache-Control: max-age=3600  
@@ -502,12 +510,12 @@ Cache-Control: max-age=3600
   "id": 123,  
   "name": "John Doe",  
   "email": "johndoe@example.com",  
-  "links": \[  
+  "links": [  
     { "rel": "self", "href": "/users/123" },  
     { "rel": "orders", "href": "/users/123/orders" }  
-  \]  
+  ]  
 }
-
+```
 * **Metadata**: The Cache-Control header allows caching.  
 * **Content-Type**: Specifies the data format (application/json).  
 * **Hypermedia Links**: Allow the client to discover related resources (HATEOAS).
@@ -582,15 +590,14 @@ By including all necessary information in each message, **self-descriptive messa
 **Example of HATEOAS in Action**
 
 **Request:**
+```json
+GET /users/123 HTTP/1.1 Host: api.example.com Accept: application/json
 
-| GET /users/123 HTTP/1.1Host: api.example.comAccept: application/json |
-| :---- |
-
+```
 **Response:**
-
-| {  "id": 123,  "name": "John Doe",  "email": "johndoe@example.com",  "\_links": {    "self": { "href": "/users/123" },    "update": { "href": "/users/123", "method": "PUT" },    "delete": { "href": "/users/123", "method": "DELETE" },    "orders": { "href": "/users/123/orders" }  }} |
-| :---- |
-
+```json
+{"id": 123,  "name": "John Doe",  "email": "johndoe@example.com",  "\_links": {    "self": { "href": "/users/123" },    "update": { "href": "/users/123", "method": "PUT" },    "delete": { "href": "/users/123", "method": "DELETE" },    "orders": { "href": "/users/123/orders" }  }} |
+```
 * The \_links section includes hypermedia links that guide the client:  
   * self: Link to the current resource (for retrieving or refreshing data).  
   * update and delete: Links to modify or delete the resource.  
@@ -735,27 +742,27 @@ REST APIs use standard HTTP headers to control caching behavior:
 **Example of Caching in REST**
 
 **Initial Request (Resource Not Cached):**  
-http  
-Copy code  
+```json
 GET /users/123 HTTP/1.1  
 Host: api.example.com  
+```
 **Response:**
-
-| HTTP/1.1 200 OKCache-Control: max-age=3600{  "id": 123,  "name": "John Doe",  "email": "johndoe@example.com"} |
-| :---- |
+```json
+HTTP/1.1 200 OK Cache-Control: max-age=3600 {"id": 123,  "name": "John Doe", "email": "johndoe@example.com"}
+```
 
 * The Cache-Control: max-age=3600 header indicates that the response can be cached for 3600 seconds (1 hour).
 
 **Subsequent Request (Resource Cached):**  
 The client checks if the cached resource is still valid:
-
-| GET /users/123 HTTP/1.1Host: api.example.comIf-None-Match: "abc123"  // ETag from the previous response |
-| :---- |
+```json
+GET /users/123 HTTP/1.1 Host: api.example.com If-None-Match: "abc123"  // ETag from the previous response /
+```
 
 **Response (Not Modified):**
-
-| HTTP/1.1 304 Not Modified |
-| :---- |
+```json
+HTTP/1.1 304 Not Modified
+```
 
 * The server confirms the resource hasn’t changed, and the client uses the cached version without downloading the data again.
 
