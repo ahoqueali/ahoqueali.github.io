@@ -43,7 +43,7 @@ This article details how REST makes web applications efficient and scalable.
 **Birth of the World Wide Web**  
 In 1998, At CERN, Sir Tim Berners-Lee, invented the Web to allow information to be shared by Scientists.
 
-The use of the internet started growing exponentially and the need to make the web scale became paramount.
+The use of the web started growing exponentially and the need to make the web scale became paramount.
 
 **Scaling the World Wide Web**  
 In 1993, Roy Fielding became actively involved with the World Wide Web and in early 1994, started working on specifying and improving the WWW infrastructure, URI, HTTP and HTML.
@@ -55,7 +55,7 @@ The dissertation detailed REST for developing scalable distributed network based
 
 # REST Design Decisions {#rest-design-decisions}
 
-The architectural design decisions that REST makes use for building scalable web applications are:
+The architectural design decisions that REST makes use of for building scalable web applications are:
 
 1. Client-Server architecture,   
 2. Layered System,   
@@ -596,7 +596,7 @@ GET /users/123 HTTP/1.1 Host: api.example.com Accept: application/json
 ```
 **Response:**
 ```json
-{"id": 123,  "name": "John Doe",  "email": "johndoe@example.com",  "\_links": {    "self": { "href": "/users/123" },    "update": { "href": "/users/123", "method": "PUT" },    "delete": { "href": "/users/123", "method": "DELETE" },    "orders": { "href": "/users/123/orders" }  }} |
+{"id": 123, "name": "John Doe",  "email": "johndoe@example.com",  "_links": {    "self": { "href": "/users/123" },    "update": { "href": "/users/123", "method": "PUT" }, "delete": { "href": "/users/123", "method": "DELETE" },    "orders": { "href": "/users/123/orders" }}}
 ```
 * The \_links section includes hypermedia links that guide the client:  
   * self: Link to the current resource (for retrieving or refreshing data).  
@@ -612,8 +612,6 @@ The client can discover these actions dynamically without requiring pre-programm
 4. **Enhanced Development Speed**: Simplified client development due to self-descriptive responses and reduced reliance on external documentation.
 
 By guiding clients dynamically through hypermedia links and minimizing the need for tight coupling or hardcoded logic, **HATEOAS improves REST efficiency** through better maintainability, reduced communication overhead, and enhanced scalability and discoverability
-
-## 
 
 ## Stateless {#stateless}
 
@@ -782,7 +780,6 @@ HTTP/1.1 304 Not Modified
 
 In summary, **caching in REST** systems improves efficiency by reducing server workload, minimizing latency, saving bandwidth, and ensuring a faster, more responsive experience for clients. Proper implementation of caching policies using HTTP headers and intermediary caches makes RESTful systems highly performant and scalable.
 
-# 
 
 ## Code-on-Demand {#code-on-demand}
 
