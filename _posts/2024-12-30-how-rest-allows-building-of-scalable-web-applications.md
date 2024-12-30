@@ -36,7 +36,7 @@ categories: BLOG
 
 Representational State Transfer (REST) is a set of architectural design decisions for building efficient and scalable web applications.
 
-The article shall detail how REST makes web applications efficient and scalable. 
+This article details how REST makes web applications efficient and scalable. 
 
 ## Conceiving of REST {#conceiving-of-rest}
 
