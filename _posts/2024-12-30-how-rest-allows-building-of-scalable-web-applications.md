@@ -43,7 +43,7 @@ The article shall detail how REST makes web applications efficient and scalable.
 **Birth of the World Wide Web**  
 In 1998, At CERN, Sir Tim Berners-Lee, invented the Web to allow information to be shared by Scientists.
 
-As the use of the internet started growing exponentially and the need to make web applications scale became paramount.
+The use of the internet started growing exponentially and the need to make the web scale became paramount.
 
 **Scaling the World Wide Web**  
 In 1993, Roy Fielding became actively involved with the World Wide Web and in early 1994, started working on specifying and improving the WWW infrastructure, URI, HTTP and HTML.
