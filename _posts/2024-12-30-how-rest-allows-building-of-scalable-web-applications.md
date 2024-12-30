@@ -6,10 +6,6 @@ author: 'A. Hoque Ali'
 categories: BLOG
 ---
 
-# How REST Allows Building of Scalable Web Applications
-
-Author: A. Hoque Ali
-
 [**Introduction	2**](#introduction)
 
 [Conceiving of REST	2](#conceiving-of-rest)
@@ -36,8 +32,6 @@ Author: A. Hoque Ali
 
 [**Code-on-Demand	25**](#code-on-demand)
 
-# 
-
 # Introduction {#introduction}
 
 Representational State Transfer (REST) is a set of architectural design decisions for building efficient and scalable web applications.
@@ -58,7 +52,6 @@ In 2000, Roy Fielding submitted his dissertation on Architectural Styles and the
 
 The dissertation detailed REST for developing scalable distributed network based software system.
 
-# 
 
 # REST Design Decisions {#rest-design-decisions}
 
