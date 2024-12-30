@@ -840,9 +840,9 @@ In summary, **caching in REST** systems improves efficiency by reducing server w
 
 **Response with Executable Code:**
 
-| HTTP/1.1 200 OKContent-Type: application/javascriptfunction validateForm(data) {  if (data.email.includes("@")) {    return "Valid email";  } else {    return "Invalid email";  }} |
-| :---- |
-|  |
+```json
+HTTP/1.1 200 OK Content-Type: application/javascript function validateForm(data) {if (data.email.includes("@")) {return "Valid email";} else {return "Invalid email";}} |
+```
 
 * In this example, the server sends JavaScript code to validate user input on the client side.  
 * The client executes this code, reducing the need to send requests to the server for validation, saving bandwidth and improving response time.
