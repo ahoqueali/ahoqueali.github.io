@@ -36,7 +36,7 @@ categories: BLOG
 
 Representational State Transfer (REST) is a set of architectural design decisions for building efficient and scalable web applications.
 
-This article details how REST makes web applications efficient and scalable. 
+This article details the design decisions. 
 
 ## Conceiving of REST {#conceiving-of-rest}
 
@@ -55,7 +55,7 @@ The dissertation detailed REST for developing scalable distributed network based
 
 # REST Design Decisions {#rest-design-decisions}
 
-The architectural design decisions that REST makes use of for building scalable web applications are:
+The architectural design decisions are:
 
 1. Client-Server architecture,   
 2. Layered System,   
