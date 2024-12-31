@@ -21,7 +21,8 @@ The URLs below allow access to the Swagger Specs
 
 # Swagger Request Validator Demo
 
-7. Whilst the  demo app is running, open a terminal and execute the following curl command `curl http://localhost:8080/hello\?name\=Ross`
+7. Whilst the  demo app is running, open a terminal and execute the following command 
+    ```curl http://localhost:8080/hello?name=Ross```
 8. The message below will be shown.. The error is produced by the Swagger Request Validator after intercepting the request as the name cannot be less than 5 chars
 
 ![alt text](https://ahoqueali.github.io/swagger-demo/swagger-request-validator.png "Swagger Request Validator Demo")
