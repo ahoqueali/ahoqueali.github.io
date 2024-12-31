@@ -4,7 +4,7 @@ plugins:
   - jekyll-sitemap
 
 title: ahoque.org
-description: Personal Blog Site
+description: Personal Blog
 domain: ahoque.org
 url: https://ahoque.org
 baseurl: /ahoqueali.github.io
