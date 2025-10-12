@@ -91,6 +91,3 @@ Before national polls, the **Election Commission**, **electoral laws**, and **ad
 ### In Essence
 Professor Yunus envisions a **“New Bangladesh”** built on transparency, justice, and human dignity — shifting power **from politics to people**.
 
----
-
-Would you like me to add **SEO meta details** (title, description, tags, keywords) or **front matter** for platforms like Hugo or Jekyll?
