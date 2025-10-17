@@ -8,4 +8,4 @@ categories: BLOG
 
 Below is a world heat map which shows the places from where users are visiting [Sylhet Directory](https://sylhetdirectory.com).
 
-![alt text](https://ahoque.org/img/sylhet-directory-user-world-heat-map.png "World Heat Map")
+![alt text](https://ahoque.org/assets/images/sylhet-directory-user-world-heat-map.png "World Heat Map")
