@@ -7,7 +7,9 @@ image: /assets/images/IMG_5875.JPEG
 tags: [autumn, nature, photography, seasons]
 ---
 
+![Autumn Leaves](/assets/images/IMG_5874.JPEG)
 ![Autumn Leaves](/assets/images/IMG_5875.JPEG)
+
 
 As the year edges towards its close, the world softens into shades of gold and rust. The once-deep greens of summer now fade gently, revealing the quiet glow of autumn. Standing beneath this canopy, I can’t help but notice how each leaf — curling, browning, yet beautiful — carries a story of change.
 
