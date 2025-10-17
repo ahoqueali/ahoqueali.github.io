@@ -17,6 +17,7 @@ Soon, these branches will stand empty against the winter sky. But for now, they 
 
 ---
 
-*“Autumn shows us how beautiful it is to let things go.”*
-
 ![Autumn Leaves](/assets/images/IMG_5875.JPEG)
+
+---
+*“Autumn shows us how beautiful it is to let things go.”*
