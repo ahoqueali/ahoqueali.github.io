@@ -1,4 +1,3 @@
-
 ---
 layout: post
 title: "SOLID Principles Explained (with Java Examples)"
