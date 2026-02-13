@@ -260,9 +260,3 @@ Now the computer supports **any** type of keyboard.
 | **D**     | Depend on abstractions                            | Easy to swap implementations    |
 
 ---
-
-If you'd like, I can also create:
-
-- ✅ A UML diagram  
-- ✅ A cheat sheet PDF  
-- ✅ A more advanced real‑world example (e.g., SOLID in a banking system)
