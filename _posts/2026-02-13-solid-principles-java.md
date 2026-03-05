@@ -1,262 +1,240 @@
 ---
 layout: post
-title: "SOLID Principles Explained (with Java Examples)"
-description: "A clear, developer-friendly explanation of the SOLID principles with Java examples—what they mean, why they matter, and how they look in practice."
-date: 2026-02-13 11:43:00 +0000
-last_modified_at: 2026-02-13 11:43:00 +0000
-author: "Ali Hoque"
-categories: [software-engineering, design-principles]
-tags: [SOLID, Java, OOP, Clean Code, Design Patterns]
-toc: true
-toc_sticky: true
-permalink: /blog/solid-principles-java-examples/
-excerpt_separator: <!--more-->
+title: "SOLID Principles: The Shapes Edition"
+date: 2026-03-05 14:00:00 +0000
+categories: [Java, Design Patterns]
+tags: [java, solid, oop]
 ---
 
-Here’s a clear, developer-friendly explanation of the **SOLID principles** with **Java examples**. Each principle includes what it means, why it matters, and how it looks in practice.  
-<!--more-->
+Understanding the **SOLID** principles is the difference between a codebase that is a house of cards and one that is a fortress. Let's break these down using a simple Shape-based ecosystem in Java.
 
 ---
 
-# 🧱 **SOLID Principles Explained (with Java Examples)**
+## 1. Single Responsibility Principle (SRP)
+**"A class should have one, and only one, reason to change."**
 
-SOLID is a set of five design principles that make software **maintainable**, **scalable**, and **easy to extend**. It’s widely used in object‑oriented programming (OOP).
-
----
-
-## 1. **S — Single Responsibility Principle (SRP)**
-
-**A class should have only one reason to change.**
-
-### ✅ What it means
-
-Each class should do **one thing**, not multiple things. This reduces bugs and makes the code easier to maintain.
-
-### ❌ Bad Example
-
-The class does too much: formatting + sending email.
+### The Problem
+In this version, the `Circle` is trying to be both a mathematical model and a UI renderer. If your rendering engine changes, you have to modify your logic class.
 
 ```java
-public class EmailService {
-    public String formatEmail(String message) {
-        return "HTML: " + message;
+public class Circle {
+    private double radius;
+
+    public Circle(double radius) {
+        this.radius = radius;
     }
 
-    public void sendEmail(String to, String message) {
-        // logic to send email
+    // Responsibility 1: Mathematical Logic
+    public double getArea() {
+        return Math.PI * radius * radius;
+    }
+
+    // Responsibility 2: UI/Rendering
+    public void draw() {
+        System.out.println("Drawing a circle with radius: " + radius);
     }
 }
+
 ```
 
-### ✅ Good Example (SRP applied)
+### The Solution
+
+Separate the concerns. The `Circle` holds data, and the `Canvas` handles the drawing logic.
 
 ```java
-public class EmailFormatter {
-    public String format(String message) {
-        return "HTML: " + message;
+public class Circle {
+    private final double radius;
+    public Circle(double radius) { this.radius = radius; }
+    public double getRadius() { return radius; }
+    public double getArea() { return Math.PI * radius * radius; }
+}
+
+public class Canvas {
+    public void drawCircle(Circle circle) {
+        System.out.println("Drawing circle at Position: 0,0 | Radius: " + circle.getRadius());
     }
 }
 
-public class EmailSender {
-    public void send(String to, String formattedMessage) {
-        // send logic
-    }
-}
 ```
-
-Each class has **one clear responsibility**.
 
 ---
 
-## 2. **O — Open/Closed Principle (OCP)**
+## 2. Open/Closed Principle (OCP)
 
-**Classes should be open for extension, but closed for modification.**
+**"Software entities should be open for extension, but closed for modification."**
 
-### ✅ What it means
+### The Problem
 
-You should be able to **add new behaviour** without changing existing code.
-
-### ❌ Bad Example
-
-Adding new payment types requires modifying the existing class:
+If we want to add a `Square`, we have to modify the `Canvas` class by adding a `drawSquare` method. This violates OCP.
 
 ```java
-public class PaymentProcessor {
-    public void pay(String type) {
-        if(type.equals("card")) { }
-        else if(type.equals("paypal")) { }
-    }
+public class Canvas {
+    public void drawCircle(Circle circle) { /* ... */ }
+    public void drawSquare(Square square) { /* ... */ } 
+    // What happens when we add Triangle? Or Pentagon? We keep editing Canvas.
 }
+
 ```
 
-### ✅ Good Example using **polymorphism**
+### The Solution
+
+Use an interface. Now, `Canvas` can render any `Shape` without ever needing to be modified again.
 
 ```java
-public interface PaymentMethod {
-    void pay();
+public interface Shape {
+    void draw(); 
 }
 
-public class CardPayment implements PaymentMethod {
-    public void pay() { }
+public class Circle implements Shape {
+    @Override
+    public void draw() { System.out.println("Drawing a Circle."); }
 }
 
-public class PayPalPayment implements PaymentMethod {
-    public void pay() { }
-}
-
-public class PaymentProcessor {
-    public void process(PaymentMethod method) {
-        method.pay();
+public class Canvas {
+    public void render(Shape shape) {
+        // This code NEVER needs to change.
+        shape.draw();
     }
 }
-```
 
-Now you can add **new payment types** without touching `PaymentProcessor`.
+```
 
 ---
 
-## 3. **L — Liskov Substitution Principle (LSP)**
+## 3. Liskov Substitution Principle (LSP)
 
-**Subclasses should be usable in place of their base class without breaking behaviour.**
+**"Subtypes must be substitutable for their base types."**
 
-### ❌ Bad Example
+### The Problem
 
-Square breaks the expectations of Rectangle:
+A `Square` is technically a `Rectangle`, but in code, forcing that relationship often breaks logic. Setting the width of a Square shouldn't unexpectedly change its height if the user expects a standard Rectangle behavior.
 
 ```java
-public class Rectangle {
-    protected int width;
-    protected int height;
-
-    public void setWidth(int w) { this.width = w; }
-    public void setHeight(int h) { this.height = h; }
-}
-
 public class Square extends Rectangle {
     @Override
-    public void setWidth(int w) { this.width = this.height = w; }
-    @Override
-    public void setHeight(int h) { this.width = this.height = h; }
-}
-```
-
-A "square" **violates expected rectangle behaviour**, so substituting it causes bugs.
-
-### ✅ Good Example
-
-Use separate hierarchies:
-
-```java
-interface Shape {
-    int area();
-}
-
-class Rectangle implements Shape {
-    int width, height;
-    public Rectangle(int w, int h) { width = w; height = h; }
-    public int area() { return width * height; }
-}
-
-class Square implements Shape {
-    int side;
-    public Square(int s) { side = s; }
-    public int area() { return side * side; }
-}
-```
-
-Both objects now behave correctly when treated as `Shape`.
-
----
-
-## 4. **I — Interface Segregation Principle (ISP)**
-
-**Do not force a class to implement methods it doesn’t need.**
-
-### ❌ Bad Example
-
-One large interface forces unused methods:
-
-```java
-public interface Worker {
-    void work();
-    void eat();
-}
-```
-
-A robot worker shouldn’t implement `eat()`.
-
-### ✅ Good Example
-
-```java
-public interface Workable {
-    void work();
-}
-
-public interface Eatable {
-    void eat();
-}
-
-public class Human implements Workable, Eatable {
-    public void work() {}
-    public void eat() {}
-}
-
-public class Robot implements Workable {
-    public void work() {}
-}
-```
-
-Interfaces are small, focused, and adaptable.
-
----
-
-## 5. **D — Dependency Inversion Principle (DIP)**
-
-**Depend on abstractions, not concrete implementations.**
-
-### ❌ Bad Example
-
-High-level class depends on a low-level concrete class:
-
-```java
-public class WiredKeyboard { }
-
-public class Computer {
-    private WiredKeyboard keyboard = new WiredKeyboard();
-}
-```
-
-You cannot swap the keyboard easily.
-
-### ✅ Good Example
-
-```java
-public interface Keyboard {}
-
-public class WiredKeyboard implements Keyboard {}
-public class BluetoothKeyboard implements Keyboard {}
-
-public class Computer {
-    private Keyboard keyboard;
-
-    public Computer(Keyboard keyboard) {
-        this.keyboard = keyboard;
+    public void setWidth(int width) {
+        this.width = width;
+        this.height = width; // Unexpected side effect for a Rectangle user!
     }
 }
+
 ```
 
-Now the computer supports **any** type of keyboard.
+### The Solution
+
+Avoid the "Is-A" trap if it breaks constraints. Make both implement a common interface instead.
+
+```java
+public interface Shape {
+    int getArea();
+}
+
+public class Rectangle implements Shape {
+    private int width, height;
+    public Rectangle(int w, int h) { this.width = w; this.height = h; }
+    @Override
+    public int getArea() { return width * height; }
+}
+
+public class Square implements Shape {
+    private int side;
+    public Square(int side) { this.side = side; }
+    @Override
+    public int getArea() { return side * side; }
+}
+
+```
 
 ---
 
-## 🎉 Summary Table
+## 4. Interface Segregation Principle (ISP)
 
-| Principle | Meaning                                           | Benefit                         |
-| --------- | ------------------------------------------------- | ------------------------------- |
-| **S**     | One responsibility per class                      | Cleaner, maintainable code      |
-| **O**     | Add functionality without modifying existing code | Safe extension                  |
-| **L**     | Subclasses must behave like their parents         | Prevents unexpected bugs        |
-| **I**     | Small, focused interfaces                         | Less coupling, more flexibility |
-| **D**     | Depend on abstractions                            | Easy to swap implementations    |
+**"Clients should not be forced to depend upon interfaces that they do not use."**
+
+### The Problem
+
+A 2D `Square` shouldn't be forced to implement `calculateVolume()`.
+
+```java
+public interface Shape {
+    double calculateArea();
+    double calculateVolume(); // 2D shapes hate this
+}
+
+```
+
+### The Solution
+
+Split large interfaces into smaller, specific ones.
+
+```java
+public interface AreaCalculatable { double calculateArea(); }
+public interface VolumeCalculatable { double calculateVolume(); }
+
+public class Square implements AreaCalculatable {
+    public double calculateArea() { return 10 * 10; }
+}
+
+public class Cube implements AreaCalculatable, VolumeCalculatable {
+    public double calculateArea() { return 600; }
+    public double calculateVolume() { return 1000; }
+}
+
+```
 
 ---
+
+## 5. Dependency Inversion Principle (DIP)
+
+**"Depend upon abstractions, not concretions."**
+
+### The Problem
+
+The `Canvas` is hard-coded to a `Circle`. It can't draw anything else without code changes.
+
+```java
+class Canvas {
+    private Circle circle = new Circle(); // Hard dependency (Bad!)
+
+    public void render() {
+        circle.draw();
+    }
+}
+
+```
+
+### The Solution
+
+Inject the abstraction (`Shape`) into the `Canvas`.
+
+```java
+public class Canvas {
+    private Shape shape;
+
+    // Dependency is injected, not hard-coded
+    public Canvas(Shape shape) {
+        this.shape = shape;
+    }
+
+    public void render() {
+        shape.draw();
+    }
+}
+
+```
+
+---
+
+## Summary (The Shapes Edition)
+
+* **SRP**: Circle does math; Canvas does drawing.
+* **OCP**: Use interfaces so you can add a `Triangle` without changing the `Canvas`.
+* **LSP**: Don't force a `Square` to be a `Rectangle` if it breaks the logic.
+* **ISP**: Don't force a `Square` to calculate `Volume`.
+* **DIP**: Make the `Canvas` depend on a `Shape` interface, not a specific `Circle`.
+
+```
+
+Would you like me to add a section on how to implement these using a specific Framework like Spring Boot?
+
+```
