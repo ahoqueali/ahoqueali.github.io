@@ -15,7 +15,42 @@ I've been experimenting with separating the concerns of data modeling into disti
 | **Semantic model** | What metrics and dimensions can I query? |
 | **Data model** | What tables, columns, and types physically exist? |
 
-The key insight: the ontology rarely changes (business concepts are stable), while the physical schema changes frequently. By separating them, you can rename a column or migrate a table without breaking metric definitions or business rules.
+
+Here's an expanded version that brings AI reasoning into the picture while keeping it suitable for LinkedIn:
+
+I like to think of data modelling as answering three different questions:
+
+🔹 **Ontology** – *What is a Customer? What is an Account? How do they relate?*
+
+🔹 **Semantic Model** – *What business metrics, measures, and dimensions can I query?*
+
+🔹 **Data Model** – *What tables, columns, and data types physically exist?*
+
+Each layer has a distinct responsibility.
+
+The **ontology** captures stable business concepts and their relationships. It provides the shared language of the business.
+
+The **semantic model** defines how those concepts are measured and analysed—metrics, dimensions, calculations, and business rules.
+
+The **data model** represents the physical implementation—the tables, columns, keys, and data types that store the information.
+
+Keeping these concerns separate makes systems easier to evolve, maintain, and govern. A change to physical storage doesn't have to change business definitions, and new metrics can be introduced without redefining the underlying business concepts.
+
+This separation also becomes increasingly valuable in the age of AI.
+
+When someone asks a question in natural language—*"What was the average monthly revenue from new customers in Europe over the last 12 months?"*—an AI agent has to reason through several layers:
+
+1. **Understand the intent** using the ontology: What does "new customer" mean? What is "revenue"? What does "Europe" represent?
+2. **Translate the business question** using the semantic model: Which measures, dimensions, filters, and time calculations correspond to the user's request?
+3. **Generate an executable query** using the data model: Which tables should be joined? Which columns contain the required data? What SQL should be produced?
+
+Rather than asking AI to infer everything from a database schema alone, we give it structured knowledge at each level. The ontology provides meaning, the semantic model provides business logic, and the data model provides the implementation details.
+
+The result is AI that can do more than generate SQL—it can **reason about the business question**, map business terminology to enterprise knowledge, explain *why* it produced a particular query, and produce more accurate, trustworthy answers.
+
+This idea feels increasingly important as AI becomes the primary interface to enterprise data. The quality of AI-generated answers will depend as much on the quality of the semantic and ontological layers as it does on the underlying data itself.
+
+
 
 ## The stack
 
