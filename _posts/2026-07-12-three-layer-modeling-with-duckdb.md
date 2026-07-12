@@ -16,18 +16,6 @@ I've been experimenting with separating the concerns of data modeling into disti
 | **Data model** | What tables, columns, and types physically exist? |
 
 
-Here's an expanded version that brings AI reasoning into the picture while keeping it suitable for LinkedIn:
-
-I like to think of data modelling as answering three different questions:
-
-🔹 **Ontology** – *What is a Customer? What is an Account? How do they relate?*
-
-🔹 **Semantic Model** – *What business metrics, measures, and dimensions can I query?*
-
-🔹 **Data Model** – *What tables, columns, and data types physically exist?*
-
-Each layer has a distinct responsibility.
-
 The **ontology** captures stable business concepts and their relationships. It provides the shared language of the business.
 
 The **semantic model** defines how those concepts are measured and analysed—metrics, dimensions, calculations, and business rules.
