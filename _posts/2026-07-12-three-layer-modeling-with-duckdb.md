@@ -1,8 +1,8 @@
 ---
 layout: post
-title: "Three-Layer Modeling with DuckDB and AI"
+title: "Designing Data Systems AI Can Trust: A Three‑Layer Approach"
 date: 2026-07-12
-description: "A working example of ontology, semantic, and physical modeling layers — all in YAML, all querying DuckDB."
+description: "Designing Data Systems AI Can Trust: A Three‑Layer Approach"
 tags: [olap, AI, ontology, semantic layer, Duck db]
 author: A. Hoque Ali
 ---
@@ -38,7 +38,44 @@ The result is AI that can do more than generate SQL—it can **reason about the 
 
 This idea feels increasingly important as AI becomes the primary interface to enterprise data. The quality of AI-generated answers will depend as much on the quality of the semantic and ontological layers as it does on the underlying data itself.
 
+I’ve been exploring a practical approach for making enterprise data truly AI‑ready — by structuring it into three distinct layers that give AI the context it needs to reason, not just query.
+🔹 Ontology — defines the core business concepts
+🔹 Semantic Model — defines how those concepts are measured
+🔹 Data Model — defines how the data is physically stored
 
+This separation isn’t just good modelling practice — it’s what makes AI effective.
+Why This Matters for AI‑Ready Systems
+
+Most organisations expect AI to answer business questions directly from natural language. But AI can only do that reliably if it has structured knowledge at each layer:
+
+    Ontology — tells AI what business terms mean
+
+    Semantic model — tells AI how to calculate things
+
+    Data model — tells AI where the data lives
+
+Without these layers, AI is forced to guess — often incorrectly — from raw schemas, inconsistent definitions, or tribal knowledge.
+What an AI‑Ready Architecture Enables
+
+When someone asks:
+
+    “Average monthly revenue from new customers in Europe over the last 12 months”
+
+An AI‑ready system can:
+
+    Interpret “new customer”, “revenue”, and “Europe” using the ontology
+
+    Map the question to measures, dimensions, filters, and time logic via the semantic model
+
+    Generate accurate SQL using the data model
+
+This means AI can do more than produce a query — it can:
+
+    Explain its reasoning
+
+    Apply business rules consistently
+
+    Deliver answers people trust
 
 ## The stack
 
