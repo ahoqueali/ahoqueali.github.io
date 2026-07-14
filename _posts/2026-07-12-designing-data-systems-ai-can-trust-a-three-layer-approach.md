@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Building AI‑Ready Data Architecture with Ontology, Semantics, and Data Models"
+title: "Designing Data Systems AI Can Trust: A Three‑Layer Approach"
 date: 2026-07-14
 tags:
   - AI-ready-data
@@ -15,8 +15,6 @@ tags:
   - data-quality
 author: A. Hoque Ali
 ---
-
-# Making Enterprise Data AI‑Ready with a Three‑Layer Architecture
 
 I’ve been exploring a practical approach for making enterprise data truly **AI‑ready** — by structuring it into three distinct layers that give AI the context it needs to *reason*, not just *query*.
 
