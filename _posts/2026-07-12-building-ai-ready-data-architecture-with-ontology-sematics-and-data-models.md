@@ -16,11 +16,6 @@ tags:
 author: A. Hoque Ali
 ---
 
-
-Here’s your content transformed into clean, structured **Markdown**, while keeping the meaning sharp and enterprise‑ready.
-
----
-
 # Making Enterprise Data AI‑Ready with a Three‑Layer Architecture
 
 I’ve been exploring a practical approach for making enterprise data truly **AI‑ready** — by structuring it into three distinct layers that give AI the context it needs to *reason*, not just *query*.
