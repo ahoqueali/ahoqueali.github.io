@@ -75,4 +75,4 @@ Zero infrastructure. No cloud account, no credentials, no throughput billing. Bi
 
 The [opencode](https://opencode.ai) config in the repo wires up a DuckDB MCP server automatically. Ask a question like "What's the total outstanding mortgage balance by region?" and the LLM reads the three layers to construct correct SQL — not just guessing at column names.
 
-The full project is on GitHub: [opencode-ai-duckdb-olap-reporting](https://github.com/ahoqueali/opencode-ai-duckdb-olap-reporting)
+The full project is on GitHub: [ai-data-system](https://github.com/ahoqueali/ai-data-system)
