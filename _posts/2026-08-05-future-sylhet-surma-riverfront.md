@@ -4,7 +4,7 @@ title: "Envisioning the Future of Sylhet: Modernity Meets Heritage along the Sur
 date: 2026-08-05 10:00:00 +0600
 categories: [Urban Planning, Future Vision, Architecture]
 tags: [sylhet, surma-river, keen-bridge, urban-development, smart-cities]
-author: Sylhet Future Initiative
+author: ahoque
 image: /assets/images/future-sylhet-surma.jpg
 excerpt: "Exploring the transformative vision for Sylhet, Bangladesh—where sustainable luxury living, futuristic landmarks, and iconic historical heritage converge along the Surma Riverfront."
 ---
