@@ -13,9 +13,6 @@ When we trace the origins of modern capitalism, conventional history often point
 
 Unique among major world religions, Islam was founded by a successful merchant, Prophet Muhammad, who descended from a prominent commercial family in Mecca. As Islam expanded, it carried with it a sophisticated, highly practical framework for business ethics and market economics.
 
-![An early Islamic Gold Dinar](/assets/images/early-islam-capitalism.jpg)
-*An early Islamic Gold Dinar coin with Arabic calligraphy, symbolizing monetary stability in early trade.*
-
 ---
 
 ## The Core Capitalist Concepts of Early Islam
