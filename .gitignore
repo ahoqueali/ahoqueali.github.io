@@ -23,3 +23,7 @@
 /dist/
 /nbdist/
 /.nb-gradle/
+
+### Jekyll ###
+/_site/
+/.sass-cache/
