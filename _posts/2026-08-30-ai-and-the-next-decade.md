@@ -8,9 +8,6 @@ author: ahoque
 description: "A psycho-historical look at how AI, automation, robotics and human psychology could reshape work, business and society over the next decade."
 excerpt: "The next decade may not be defined by AI replacing humans, but by what happens when intelligence becomes abundant, inexpensive and widely accessible."
 ---
-
-# The Next Decade: A Psycho-Historical Forecast for 2026–2036
-
 The next ten years could be one of the most consequential periods in modern history.
 
 But the biggest change may not be technological.
