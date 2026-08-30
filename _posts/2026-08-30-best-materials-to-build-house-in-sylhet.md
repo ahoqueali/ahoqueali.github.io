@@ -107,4 +107,3 @@ The roof takes the brunt of Sylhet's rainfall, so this is where you spend on dur
 
 Sylhet's climate is hard but not hostile. Stick to proven materials — local brick or concrete blocks for walls, a well-sloped pitched roof with good overhang, durable tiles for floors, and serious waterproofing at the base — and your home will stand comfortably through decades of monsoon. The secret isn't exotic materials; it's choosing the right ones and doing them properly.
 
-*Have you built a house in Sylhet? Share what worked (and what leaked) in the comments below!*
