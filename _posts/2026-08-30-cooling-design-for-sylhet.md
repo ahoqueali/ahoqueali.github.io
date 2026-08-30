@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Cooling Design for Sylhet: Building Comfortable Without Air Conditioning"
-date: 2026-08-30 12:00:00 +0600
+date: 2026-08-30 11:00:00 +0600
 categories: [Architecture, Design, Sylhet]
 tags: [sylhet, passive-design, cooling, ventilation, climate]
 author: ahoque
