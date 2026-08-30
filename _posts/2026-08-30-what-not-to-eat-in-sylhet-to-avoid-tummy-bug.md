@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "What Not to Eat in Sylhet (To Avoid the Tummy Bug)"
-date: 2026-08-30 08:05:00 -0000
+date: 2026-08-30 06:05:00 +0600
 categories: BLOG
 ---
 # What Not to Eat in Sylhet (To Avoid the Tummy Bug)
