@@ -6,7 +6,14 @@ categories: BLOG
 ---
 # What Not to Eat in Sylhet (To Avoid the Tummy Bug)
 
-Sylhet has incredible food — juicy kala bhuna, freshly made shatkora beef, and the city's famous panthas and seven-layer teas. But travel fluids, unfamiliar water, and a change in bacteria can leave even seasoned visitors doubled over. Here's a practical, no-nonsense list of what to skip (or handle with extreme care) to keep your stomach settled.
+Sylhet has incredible food — juicy kala bhuna, freshly made shatkora beef, and the city's famous panthas and seven-layer teas. But unfamiliar food, unsterile water, and a change in gut bacteria can leave even seasoned visitors doubled over. The good news: all it takes is a handful of sensible habits. Here's the quick version first, then the detail.
+
+## The Golden Rules
+- Drink only sealed bottled water.
+- Eat where the line is long (high turnover = fresher food).
+- Skip ice, raw salads, and pre-cut fruit.
+- Wash hands or sanitise before every bite.
+- Take it easy on your first day — let your stomach adjust before embracing the full street-food experience.
 
 ## 1. Ice in Everything
 That ice in your cold drinks may have been made from straight tap water. Avoid it where you can. Ask for drinks without ice, or stick to sealed bottled water. The ice in sharbat from roadside vendors is the biggest culprit.
@@ -17,7 +24,7 @@ Pre-cut fruit (cucumber, mango, watermelon) sitting out for hours and sugar-cane
 ## 3. Roadside "Muri" and Unoiled Snacks
 Puffed rice with sliced onions, tomatoes, and green chillies is delicious — but the raw veggies are often washed in tap water and the whole mix is handled by hand. Same goes for bhelpuri-style snacks. Skip anything with uncooked vegetables from open stalls.
 
-## 4. Raw Salad and "Dhakaiya" Garnishes
+## 4. Raw Salad and Fresh Garnishes
 At restaurants, raw salad (sliced cucumber, onion, carrot) often gets a quick tap-water rinse. Ask for it without the salad, or dine at places that state they use filtered water. Salads are a common trap precisely because they look safe.
 
 ## 5. Undercooked or Reheated Seafood
@@ -32,14 +39,14 @@ Fresh lassi, yogurt, and milk sold loose may not be pasteurised. Stick to sealed
 ## 8. Street Meat With Doubtful Handling
 Kala bhuna and beef skewers from popular stalls are usually cooked well-done and at high heat, which is good. But watch out for meat that's been sitting under a cloth for hours or reheated mid-day. If a stall is packed and turnover is high, you're safer; if it looks slow and sad, walk past.
 
+## What IS Safe
+- **Freshly fried food**: samosas, chops, and jhal-muri made in front of you and served hot.
+- **Fully cooked, freshly served meat**: well-done kala bhuna from a busy stall.
+- **Bottled or sealed drinks**: soft drinks, sealed juice, and filtered water.
+- **Whole fruit you peel yourself**: bananas, oranges, lychees.
+- **High-turnover stalls**: anything where food sells out fast and is constantly replenished.
+
 ## 9. Anything You Peeled With Your Hands After Touching Money
 Hand hygiene is the real enemy. Money and phone screens are filthy here (and everywhere). Carry a small hand sanitiser and use it before every meal. Half of all foodborne illness is really just dirty hands.
-
-## The Golden Rules
-- Drink only sealed bottled water.
-- Eat where the line is long (high turnover = fresher food).
-- Skip ice, raw salads, and pre-cut fruit.
-- Wash hands or sanitise before every bite.
-- Take it easy on your first day — let your stomach adjust before going wild on street food.
 
 Sylhet's food is genuinely some of the best in Bangladesh. A few sensible precautions mean the only thing you'll be taking home is great memories — not an upset stomach.
