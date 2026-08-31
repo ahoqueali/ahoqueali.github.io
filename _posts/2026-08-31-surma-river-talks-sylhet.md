@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "The Surma River Talks: Where Ideas Meet the Current"
-date: 2026-08-31 23:30:00 +0100
+date: 2026-08-31 22:30:00 +0100
 author: ahoque
 categories: [Sylhet, Ideas, Culture, Bangladesh]
 tags: [sylhet, surma-river, public-intellect, talks, bangladesh, annual-event]
