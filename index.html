@@ -4,9 +4,11 @@ title: ahoque.org
 ---
 
 <div id="home">
-    <img src="{{ 'assets/images/ahoqueali.png' | relative_url }}" alt="ahoqueali" style="width:100px; border-radius:50%; display:block; margin:0 0 15px; margin-top:-80px;" />
-    <p style="margin:0 0 3px; font-weight:600;">Software Architect</p>
-    <p style="margin:0 0 20px;"><a href="mailto:ahoque.ali@ahoque.org">ahoque.ali@ahoque.org</a></p>
+    <img src="{{ 'assets/images/ahoqueali.png' | relative_url }}" alt="ahoqueali" style="width:100px; border-radius:50%; display:inline-block; vertical-align:middle; margin-right:12px; margin-top:-80px;" />
+    <span style="display:inline-block; vertical-align:middle; margin-bottom:20px;">
+        <strong style="display:block;">Software Architect</strong>
+        <a href="mailto:ahoque.ali@ahoque.org" style="font-size:0.85em;">ahoque.ali@ahoque.org</a>
+    </span>
     <h1>Blog Posts</h1>
     <ul class="posts">
         {% for post in site.posts %}
