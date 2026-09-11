@@ -11,6 +11,10 @@ author: ahoque
 
 Some voices belong to a particular time. Others somehow remain with us long after the music has stopped.
 
+<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSMCby0SnsLdiRIrYZwATl-kzRysqexnwoEEXlz4iZKfU0jTdAjy56ay3Nf&s=10"
+     alt="Nazia Hassan"
+     loading="lazy">
+
 **Nazia Hassan was one of those voices.**
 
 Born in Karachi in 1965, Nazia became one of the most recognisable voices of South Asian pop music. Her breakthrough came as a teenager with *Aap Jaisa Koi*, followed by the hugely influential *Disco Deewane* and a series of songs that helped define the sound of an era.
