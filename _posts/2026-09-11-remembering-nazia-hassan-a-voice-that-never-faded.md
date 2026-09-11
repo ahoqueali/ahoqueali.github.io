@@ -8,8 +8,6 @@ author: ahoque
 image: /assets/images/nazia-hassan.png
 ---
 
-## Remembering Nazia Hassan
-
 Some voices belong to a particular time. Others somehow remain with us long after the music has stopped.
 
 **Nazia Hassan was one of those voices.**
