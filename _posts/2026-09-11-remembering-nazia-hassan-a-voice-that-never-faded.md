@@ -32,7 +32,7 @@ Here is a video that brings back some of that magic:
 <iframe
   width="560"
   height="315"
-  src="https://www.youtube.com/embed/DfJ6WqtKm-8"
+  src="https://youtu.be/jlGK3SDRu2o?si=rB4P6dA3jNMYbUsk"
   title="Nazia Hassan"
   frameborder="0"
   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
