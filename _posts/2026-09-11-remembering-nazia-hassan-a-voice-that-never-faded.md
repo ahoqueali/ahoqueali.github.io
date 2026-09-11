@@ -5,6 +5,7 @@ date: 2026-09-11 22:00:00 +0100
 categories: [Music, Memories, South Asian Culture]
 tags: [Nazia-Hassan, Pakistani-Pop, Music, Memories]
 author: ahoque
+image: /assets/images/nazia-hassan.png
 ---
 
 ## Remembering Nazia Hassan
@@ -13,7 +14,7 @@ Some voices belong to a particular time. Others somehow remain with us long afte
 
 **Nazia Hassan was one of those voices.**
 
-<img src="assets/images/nazia-hassan.png"
+<img src="/assets/images/nazia-hassan.png"
      alt="Nazia Hassan"
      loading="lazy">
 
