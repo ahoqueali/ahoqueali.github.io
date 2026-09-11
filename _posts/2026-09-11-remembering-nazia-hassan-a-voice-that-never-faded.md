@@ -13,7 +13,7 @@ Some voices belong to a particular time. Others somehow remain with us long afte
 
 **Nazia Hassan was one of those voices.**
 
-<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSMCby0SnsLdiRIrYZwATl-kzRysqexnwoEEXlz4iZKfU0jTdAjy56ay3Nf&s=10"
+<img src="assets/images/nazia-hassan.png"
      alt="Nazia Hassan"
      loading="lazy">
 
