@@ -4,7 +4,7 @@ title: "Benchmarking Local LLMs on the M4 Pro MacBook Pro"
 date: 2026-09-22 09:00:00 +0100
 categories: [AI, Machine Learning, Hardware]
 tags: [llm, ollama, mlx, benchmarks, m4-pro, local-llms]
-author: ibaadul hoque
+author: Ibaadul Hoque
 description: "Notes from stress-testing thirteen open-weight models locally through Ollama on a 24GB M4 Pro MacBook Pro — speed, accuracy, RAM fit and which ones are actually worth running."
 excerpt: "Finding a local model that is fast, accurate and fits in 24GB of RAM on the M4 Pro is harder than it looks. Qwen3.8, Gemma 4 and Magistral come out on top."
 ---
