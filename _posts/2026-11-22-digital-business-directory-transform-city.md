@@ -9,8 +9,6 @@ description: "Why every modern city needs digital business infrastructure, how a
 permalink: /sylhet/digital-economy/business/digital-business-directory-transform-city/
 ---
 
-# The Digital High Street: How an Online Business Directory Can Transform a City
-
 When we think about developing a city, our attention naturally turns to physical infrastructure: roads, bridges, public transport, shopping centres, hospitals, schools and commercial buildings.
 
 These are essential foundations of urban development. But there is another form of infrastructure that is becoming increasingly important and often receives far less attention: **digital infrastructure for local commerce.**
